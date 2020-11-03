@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<style type="text/css">
+
+	.innerbuttons{
+		border: none; 
+		overflow: hidden; 
+		cursor: pointer;
+		background-color: Transparent;
+		float:justify;
+
+	}
+	
+	.sec1-head .sec2-head .sec3-head{
+		color:grey;
+		
+		text-decoration-color: none;
+		text-decoration: none;
+
+	}
+	.card-body{
+		text-align: center;
+
+	}
+	.sec-right{
+		height: 500px; 
+		border: solid; 
+		border-color: grey;
+	}
+.card{
+	box-shadow: 0px 0px 2px 1px #e9e9e9;
+    cursor:move;
+
+
+}
+table, th, td {
+  border: 0px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+select {
+        width: 186px;
+        
+    }
+
+</style>
+
+<title>FORM CREATER</title>
+</head>
+<body>
+<img src="RMR-Logo11-1.png" alt="" style="float: left; margin-left: 10px;"><br><br><br><br>
+
+<div class="row">
+<div class="col-xs-4 col-md-4">
+<!--Accordion wrapper-->
+
+<div class="accordion md-accordion container-fluid" id="accordionEx left" role="tablist" aria-multiselectable="true" >
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header " role="tab" id="headingOne1"style="background-color: #F3F3F3 ;">
+      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+        aria-controls="collapseOne1">
+        <h5 class="mb-0"style="font-weight:bold;color:#454141  ;">
+            PALETTE
+        </h5>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+      <div class="card-body">
+        <div class="">
+        	<table class="table-borderless table-responsive">
+        		<tbody>
+        			<tr>
+        				<td><ul style="list-style-type:none;text-align:left;font-weight:bold;">
+                            <em class="fa fa-caret-square-o-down"></em>&nbsp;&nbsp;Dropdown</ul></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><ul style="list-style-type:none;text-align:left;font-weight:bold;"><em class="fa fa-edit"></em>&nbsp;&nbsp;Text</ul></td>
+        			</tr>
+        			<tr>
+        				<td><ul style="list-style-type:none;text-align:left;font-weight:bold;"><em class="fa fa-circle-o"></em>&nbsp;&nbsp;Radio</ul></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><ul style="list-style-type:none;text-align:left;font-weight:bold;"><em class="fa fa-list-alt"></em>&nbsp;&nbsp;TextArea</ul></td>
+        			</tr>
+        			<tr>
+        				<td><ul style="list-style-type:none;text-align:left;font-weight:bold;"><em class="fa fa-check-square-o"></em>&nbsp;&nbsp;Checkbox</ul></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><ul style="list-style-type:none;text-align:left;font-weight:bold;"><em class="fa fa-calendar"></em>&nbsp;&nbsp;Date</ul></td>
+        			</tr>
+        			<tr>
+        				<td><ul style="list-style-type:none;text-align:left;font-weight:bold;"><em class="fa fa-folder"></em>&nbsp;&nbsp;Section</ul></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><ul style="list-style-type:none;text-align:left;font-weight:bold;"><em class="fa fa-envelope"></em>&nbsp;&nbsp;Email</ul></td>
+        			</tr>
+        			<tr>
+        				<td><ul style="list-style-type:none;text-align:left;font-weight:bold;"><em class="fa fa-copy"></em>&nbsp;&nbsp;Repeat</ul></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><ul style="list-style-type:none;text-align:left;font-weight:bold;"><em class="fa fa-money"></em>&nbsp;&nbsp;Money</ul></td>
+        			</tr>
+        			<tr>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-th-large"></i>&nbsp;&nbsp;Tabs</li></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-phone"></i>&nbsp;&nbsp;Phone</li></td>
+        			</tr>
+        			<tr>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-columns"></i>&nbsp;&nbsp;Panel</li></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-keyboard-o"></i>&nbsp;&nbsp;Quantity</li></td>
+        			</tr>
+        			<tr>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-table"></i>&nbsp;&nbsp;Table</li></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-list-ol"></i>&nbsp;&nbsp;Number</li></td>
+        			</tr>
+        			<tr>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fas fa-comment"></i>&nbsp;&nbsp;Message</li></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;T/F</li></td>
+        			</tr>
+        			<tr>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-link"></i>&nbsp;&nbsp;Link</li></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fas fa-image"></i>&nbsp;&nbsp;Image</li></td>
+        			</tr>
+        			<tr>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;Trigger</li></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-video-camera"></i>&nbsp;&nbsp;Video</li></td>
+        			</tr>
+        			<tr>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-upload"></i>&nbsp;&nbsp;Upload</li></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Submit</li></td>
+        			</tr>
+        			<tr>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Signature</li></td>
+        				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-level-down"></i>&nbsp;&nbsp;PageBreak</li></td>
+        			</tr>
+        			<tr>
+        				<td><li style="list-style-type:none;text-align:left;font-weight:bold;"><i class="fa fa-book"></i>&nbsp;&nbsp;Form Viewer</li></td>
+
+        			</tr>
+
+        		</tbody>
+        	</table>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Accordion card -->
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="headingTwo2"style="background-color: #F3F3F3 ;">
+      <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+        aria-expanded="false" aria-controls="collapseTwo2">
+        <h5 class="mb-0"style="font-weight:bold;color:#454141  ;text-align:center;">
+          CUSTOM
+        </h5>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+      data-parent="#accordionEx">
+      <div class="card-body sec2-head">
+        asd
+      </div>
+    </div>
+
+  </div>
+  <!-- Accordion card -->
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="headingThree3"style="background-color: #F3F3F3 ;">
+      <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+        aria-expanded="false" aria-controls="collapseThree3">
+        <h5 class="mb-0"style="font-weight:bold;color:#454141  ;text-align:center;">
+          PROPERTIES 
+        </h5>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+      data-parent="#accordionEx"style="background-color: #F3F3F3 ;">
+      <div class="card-body sec3-head">
+       <nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"style="font-weight:bold;color:#454141  ;text-align:center;">Settings</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"style="font-weight:bold;color:#454141  ;text-align:center;">Style</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"style="font-weight:bold;color:#454141  ;text-align:center;">Form Info</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"style="background-color: #F3F3F3 ;">
+  	<th>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="#">Help</a></th>
+  	 <table style="width:100%;border:0px;">
+  	 	<tr>
+  	 		
+  	 	</tr>
+  <tr>
+    <th style="text-align: right;">Label</th>
+    <th><input type="text"></th>
+  </tr>
+  <tr>
+    <th style="text-align: right;">Name</th>
+    <th><input type="text"></th>
+  </tr>
+   
+   <tr>
+    <th style="text-align: right;">CSS Class</th>
+    <th><input type="text" ></th>
+  </tr>
+  
+  <tr>
+    <th style="text-align: right;">Hint</th>
+    <th><input type="text" ></th>
+  </tr>
+   <tr>
+    <th style="text-align: right;">Help</th>
+    <th><textarea></textarea></th>
+  </tr>
+   <tr>
+    <th style="text-align: right;">Pattern</th>
+    <th><input type="text">&nbsp;<em class="fa fas fa-info-circle"></em></th>
+  </tr>
+  <tr>
+    <th style="text-align: right;">Error Message</th>
+    <th><input type="text" ></th>
+  </tr>
+  
+ <table class="table-borderless table-responsive"style="width:100%">
+         
+            <tr>
+               <th style="text-align: right;">Password</th>
+    <th><input type="checkbox"></th><th style="text-align: right;">&emsp;&emsp;&emsp;&emsp;Visible</th>
+    <th><input type="checkbox"></th></tr>
+     <tr>
+               <th style="text-align: right;">Printable</th>
+    <th><input type="checkbox"></th><th style="text-align: right;">&emsp;&emsp;&emsp;&emsp;Hide Label</th>
+    <th><input type="checkbox"></th></tr>
+     <tr>
+               <th style="text-align: right;">Enabled</th>
+    <th><input type="checkbox"></th><th style="text-align: right;">&emsp;&emsp;&emsp;&emsp;Sensitive</th>
+    <th><input type="checkbox"></th></tr>
+    
+</table>
+  
+  
+ 
+</table>
+
+
+
+
+
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="#">Publish Control Template</a>
+
+
+  </div>
+
+
+
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"style="background-color: #F3F3F3 ;">
+
+	 <table style="width:100%;border:0px;">
+  	 	<tr>
+  	 		<th style="text-align: right;">Column Width</th>
+    <th><input type="number"></th>
+  	 	</tr>
+  	 	<tr>
+  	 		<th style="text-align: right;">BG Color</th>
+    <th><input type="text"></th>
+  	 	</tr>
+  
+
+</table>
+</div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"style="background-color: #F3F3F3 ;">...Form 
+
+
+
+
+
+
+  Info</div>
+
+
+</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card">
+     <div class="card-header" role="tab" id="headingFour4"style="background-color: #F3F3F3 ;">
+      <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseFour4"
+        aria-expanded="false" aria-controls="collapseFour4">
+        <h5 class="mb-0"style="font-weight:bold;color:#454141  ;text-align:center;">
+         DATA SOURCES
+        </h5>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseFour4" class="collapse" role="tabpanel" aria-labelledby="headingFour4"
+      data-parent="#accordionEx">
+      <div class="card-body sec2-head">
+        asd
+      </div>
+    </div>
+
+  </div>
+  <!-- Accordion card -->
+
+</div>
+<!-- Accordion wrapper -->
+</div>
+
+<div class="col-xs-14 col-sm-14 col-md-14 sec-right container-fluid" >
+
+</div>
+</div>
+
+</body>
+</html>

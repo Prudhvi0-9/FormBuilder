@@ -1,0 +1,20 @@
+
+vpython:S117h"ZRename this local variable "formModel" to match the regular expression ^[_a-z][a-z0-9_]*$.(•ž€Øúÿÿÿÿ
+tpython:S117F"XRename this local variable "listLen" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿ–Üïüÿÿÿÿ
+rpython:S117*"[Rename this local variable "parentFlow" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÍÌ€Û
+mpython:S117a"WRename this local variable "nodeId" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘¸ð
+mpython:S1542"PRename function "addForm" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(‹ùØÐþÿÿÿÿ
+;python:S125,"Remove this commented out code.(Éå¥®þÿÿÿÿ
+;python:S125l"Remove this commented out code.(æÀÎ€øÿÿÿÿ
+rpython:S1542r"URename function "get_formById" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(ºß½Êþÿÿÿÿ
+;python:S1253"Remove this commented out code.(éüßîüÿÿÿÿ
+;python:S125"Remove this commented out code.(¿’Ú‚ýÿÿÿÿ
+dpython:S1854@"LRemove this assignment to local variable 'flow_id'; the value is never used.(ÃŠ£ª
+npython:S117"RRename this parameter "flowId" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹ùØÐþÿÿÿÿ
+ipython:S1854C"LRemove this assignment to local variable 'node_id'; the value is never used.(ý«ì¹ûÿÿÿÿ
+@python:S1481R"(Remove the unused local variable "many".(“öœÎ
+Fpython:S1481*".Remove the unused local variable "parentFlow".(ÍÌ€Û
+mpython:S117E"VRename this local variable "wList" to match the regular expression ^[_a-z][a-z0-9_]*$.(¿Ïï´
+npython:S117"RRename this parameter "nodeId" to match the regular expression ^[_a-z][a-z0-9_]*$.(‹ùØÐþÿÿÿÿ
+Bpython:S1481S"%Remove the unused local variable "i".(£ýú¼þÿÿÿÿ
+5python:S125n"Remove this commented out code.(ÐÔòp

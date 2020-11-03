@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workflow Listtt</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+
+
+    <style>
+
+     .table{
+            margin: auto;
+            width: 50% !important;
+        }
+        .table th {
+           text-align: center;
+        }
+        h1 {
+           text-align: center;
+        }
+        .glyphicon {
+           margin-right:5px;
+        }
+     tbody.collapse.in {
+      display: table-row-group;
+    }
+    </style>
+   <script>
+
+    </script>
+
+</head>
+<body>
+    <h1>Workflow List</h1>
+
+
+
+<hr>
+<table id="workflowList" class="table table-bordered table-sm ">
+    <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Version</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+     {% for flow in data %}
+    <tbody>
+        <tr class="clickable" data-toggle="collapse" data-target="#group-of-rows-{{flow}}"  aria-controls="group-of-rows-{{flow}}">
+            <td><em class="fa fa-folder"></em></td>
+            <td>{{data[flow].name}}</td>
+            <td>{{data[flow].version}}</td>
+            <td>
+                <a href="viewFlow/{{data[flow].id}}">
+                    <span><em class="fa fa-eye"></em></span>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+     <tbody id="group-of-rows-{{flow}}" class="collapse">
+       {% for child in data[flow].children %}
+        <tr class="table-warning">
+            <td><em class="fa fa-folder-open"></em>  </td>
+            <td>{{child.name}}</td>
+            <td>{{child.version}}</td>
+            <td>
+                <a href="viewFlow/{{data[flow].id}}">
+                    <span><em class="fa fa-eye"></em></span>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+     {% endfor %}
+
+
+</table>
+
+
+<!--    <ul>-->
+<!--        {% for flow in data %}-->
+<!--            <li>Name:{{flow.name}}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+#Dependencies
+pip install flask
+pip install flask-sqlalchemy
+pip install flask_script
+pip install flask_migrate
+pip install psycopg2-binary
+pip install marshmallow flask-bcrypt pyjwt
+pip install SQLAlchemy-JSONField
+
+
+
+##### DB Commands
+python manage.py db init
+python manage.py db migrate
+python manage.py db upgrade
+
+###setting enviornment variables:
+export FLASK_ENV=development
+export DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres
+export JWT_SECRET_KEY=hhgaghhgsdhdhdd
+
+#links
+https://www.compose.com/articles/using-json-extensions-in-postgresql-from-python-2/
+
+#command to start an application
+python run.py
+
+#collapse table :
+https://codepen.io/Sp00ky/pen/akVkyV

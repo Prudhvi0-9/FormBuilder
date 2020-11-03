@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1073c96c-0d0c-4305-8325-adab79649307" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WQBkg2MARQIVe2KeE95DfsMiiP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/templates/flow" />
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1073c96c-0d0c-4305-8325-adab79649307" name="Default Changelist" comment="" />
+      <created>1579072082655</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579072082655</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="744" y="278" key="FileChooserDialogImpl" timestamp="1580269003510">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="744" y="278" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1580269003510" />
+    <state x="457" y="155" key="SettingsEditor" timestamp="1579072582716">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="457" y="155" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1579072582716" />
+    <state x="639" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1580268954911">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="639" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1580268954911" />
+    <state x="637" y="120" width="645" height="804" key="find.popup" timestamp="1579239512474">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="637" y="120" width="645" height="804" key="find.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1579239512474" />
+    <state x="722" y="211" key="svn.repositoryBrowser" timestamp="1580367981892">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="722" y="211" key="svn.repositoryBrowser/0.0.1920.1044@0.0.1920.1044" timestamp="1580367981892" />
+  </component>
+</project>

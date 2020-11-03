@@ -1,0 +1,4 @@
+
+6python:S125"Remove this commented out code.(’˜
+ipython:S1019"RRename class "Model_1Schema" to match the regular expression ^[A-Z_][a-zA-Z0-9]+$.(µŸÀÈ
+hpython:S101"LRename class "Model_1" to match the regular expression ^[A-Z_][a-zA-Z0-9]+$.(’êÊ‘ùÿÿÿÿ

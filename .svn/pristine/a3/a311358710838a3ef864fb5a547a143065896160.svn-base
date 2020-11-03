@@ -1,0 +1,2770 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FORM BUILDER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
+  <style>
+    #title {
+    float: left;
+    padding: 0 5px;
+    margin: -20px 0 0 4px;
+    background: #fff;
+    font-size: 100;
+    }
+    .resize-drag1,.resize-drag2,.resize-drag3,.resize-drag4,.resize-drag5{
+        background-color: white;
+        color: black;
+        font-size: 20px;
+        font-family: sans-serif;
+        padding: 10px;
+        margin: 0px 0px;
+        touch-action: none;
+        box-sizing: border-box;
+    }
+     #table_actual  td{
+      border:1px solid; height: 3px;
+    }
+    .resize-container {
+       display: inline-block;
+       width:100%;
+       height: 240px;
+       border:4px solid black;
+    }
+    .form_op_fields_class{
+        display: inline-block;
+        width:100%;
+        height: 240px;
+    }
+    .form_op_fields_class_elements{
+        background-color: white;
+        color: black;
+        font-size: 20px;
+        font-family: sans-serif;
+        padding: 10px;
+        margin: 0px 0px;
+        touch-action: none;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color:  #cfcdcd ;
+        background: #000046;  
+        background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  
+        background: linear-gradient(to right, #1CB5E0, #000046); 
+    }
+    .sidenav-right {
+        height: 95%;
+        overflow-y:scroll;
+        margin-right: 1%;
+        width: 20%;
+        margin-top: 1%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #dbe0e1;
+        border-radius: 5px;
+        overflow-x: hidden;
+        padding-top: 0px;
+    }
+    .sidenav {
+        height: 95%;
+        margin-left: 1%;
+        width: 21%;
+        margin-top: 1%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #dbe0e1;
+        border-radius: 5px;
+        overflow-y: scroll;
+        padding-top: 0px;docker start
+    }
+    .dropdown-btn {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 15px;
+        color: #111111;
+        box-sizing: border-box;
+       font-family: 'Roboto', sans-serif;
+        display: block;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+    }
+    .sidenav a, .dropdown-btn {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 15px;
+        color: #111111;
+        box-sizing: border-box;
+       font-family: 'Roboto', sans-serif;
+        display: block;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+    }
+    .dropdown-btn:hover {
+        color:#111111;
+    }
+    .sidenav a:hover, .dropdown-btn:hover {
+        color:#111111;
+    }
+    .main {
+        margin-left: 200px; /* Same as the width of the sidenav */
+        font-size: 10px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+        border-style: dashed;
+        border-color: #ffffff;
+
+        width: 730px;
+        min-height: 780px;
+        margin-top:0px; /*2%;*/
+        margin-bottom: 10%;
+        margin-left: 330px;/*22%;*/
+        margin-right: 22%;
+        padding: 0px;
+        position: absolute;
+        overflow-x: scroll;
+    }
+    #form1{
+        width: 681px;
+        height:721px;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        right:20px;
+        bottom:20px;
+        background:white;
+        display:none;
+        vertical-align: middle;
+        align-items: center;
+    }
+    #dropZone1 {
+        width: 681px;
+        min-height:721px;
+        left: 20px;
+        top: 20px;
+        right:20px;
+        bottom:20px;
+        background:white;
+        vertical-align: middle;
+        align-items: center;
+        border-color: rgb(255, 255, 255);
+        background-color: rgb(255, 255, 255);
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UwZTBlMCIgb3BhY2l0eT0iMC4yIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=");
+        background-position: 0px 0px;
+        box-shadow: 0px 0px 2px 1px #e9e9e9;
+        cursor: default;
+        float:left;
+        overflow: scroll;
+    }
+    #dropZone2,#dropZone3,#dropZone4{
+        width: 681px;
+        min-height:721px;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+          right:20px;
+          bottom:20px;
+        display:none;
+        float:left;
+        vertical-align: middle;
+        align-items: center;
+         touch-action: none;
+    }
+    #form2{
+        width: 681px;
+        min-height:721px;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        right:20px;
+        bottom:20px;
+        display: none;
+        float:left;
+        vertical-align: middle;
+        align-items: center;
+    }
+    #form3{
+        width: 681px;
+        min-height:721px;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        right:20px;
+        bottom:20px;
+        float:left;
+        vertical-align: middle;
+        align-items: center;
+    }
+    .form2col2page{
+        border:1px solid black;
+        float: left; 
+        width: 338px;
+        min-height:750px;
+        background-color: rgb(255, 255, 255);
+    }
+    .column2 {
+        border:1px solid black;
+        float: left; 
+        width: 340px;
+        min-height:750px;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UwZTBlMCIgb3BhY2l0eT0iMC4yIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=");
+        background-color: rgb(255, 255, 255);
+    }
+    .form3col3page{
+        border:1px solid black;
+        float: left; 
+        width: 225px;
+        min-height:721px;
+        background-color: rgb(255, 255, 255);
+    }
+    .column3 {
+        border:1px solid black;
+        float: left; 
+        width: 226.66px;
+        min-height:721px;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UwZTBlMCIgb3BhY2l0eT0iMC4yIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTBlMGUwIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=");
+        background-color: rgb(255, 255, 255);
+    }
+    .active {
+        background-color: #dbe0e1;
+        color: #111111;
+    }
+    .dropdown-container {
+        display: none;
+        background-color: #dbe0e1;28
+        padding-left: 2px;
+        overflow-y: auto;
+    }
+    .fa-caret-down {
+        float: right;
+        padding-right: 8px;
+    }
+   /* @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+    @media screen and (max-height: 450px) {
+      .sidenav-right {padding-top: 15px;}
+      .sidenav-right a {font-size: 18px;}
+    }*/28
+    .button-one {
+        background: #edf000; /* background color */
+    }
+    .button-two {
+        background: #f15640;
+    }
+    .button-three {
+        background: #27c9b8;
+    }
+    .button-four{
+      background:#1ab8db;
+    }
+    .button-one,  .button-two,  .button-three, .button-four{
+        color: #1d1d1d; /* text color */
+        display: inline-block;
+        border-radius: 0; /* square corners */
+        padding: 10px 18px; /* space around text */
+        text-transform: uppercase; /* all capital letters */
+        font-weight: 700;
+        letter-spacing: 1px;
+        -moz-transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+    .button-one:hover,.button-two:hover,.button-three:hover,.button-four:hover {
+        background: #fff;
+    }
+    #button{
+        background: none;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        outline: inherit;
+    }
+    .active {
+        background: grey;
+        z-index: 2;
+    }
+    .label {
+        font-size: 30px;
+    }
+    #handle {
+        background-color: green;
+        width: 10px;
+        height: 10px;
+        cursor: se-resize;
+        position:absolute;
+        right: 0;
+        bottom: 0;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+  <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+  <script >
+
+    window.onload=function(){
+
+        flowId = '{{flowId}}'
+        nodeId = '{{nodeId}}'
+        formId = '{{form_id}}'
+        var mode = '{{mode}}'
+
+        if(formId != '' && mode == "view")
+        {
+            Preview(formId)
+        }
+        else
+        {
+           formDetail()
+        }
+
+    };
+    /*ONLY IT TO ONLY HEADER FIELD */
+    interact('.resize-drag1')
+      .draggable({
+        onmove: window.dragMoveListener,/*ON DRAGGING*/
+        onend: function(event){/*WHEN DRAGGING IS  OVER FOR FIELD*/
+          var parent_id=event.target.parentNode.id;
+          json=findDataByLayout(parent_id);
+          for(var i=0;i!=json.length;i++){
+            if(json[i].node_id==event.target.id){
+              json[i].y=event.target.getBoundingClientRect().top-event.target.parentNode.getBoundingClientRect().top+'px';
+              json[i].x=event.target.getBoundingClientRect().left-event.target.parentNode.getBoundingClientRect().left+'px';
+              break;
+            }
+          } 
+          storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+        },
+        restrict: {/*DRAGGING RESTRICT WITH IN  PARENT ELEMENT*/
+          restriction: 'parent',
+          elementRect: { top: 1, left: 1, bottom: 1, right: 1 }
+        },
+      })
+      .resizable({
+        edges: { left: true, right: true, bottom: true, top: true },
+        restrictEdges:{/*RESIZING FIELD RESTRICT TO PARENT ELEMENT ONLY*/
+            outer: 'parent',
+            endOnly: true,
+        },
+        restrictSize:{/*RESIZING FIELD RESTRICT TO SPECIFIC WIDTH AND HEIGHT*/
+            min:{width:90,height:35},
+            max:{width:678,height:80},
+        },
+        inertia: true
+      })
+      /*WHEN RESIZING FIELD IS  OVER*/
+      .on('resizemove', function (event) {
+        var target = event.target,
+        x = (parseFloat(target.getAttribute('data-x')) || 0)
+        y = (parseFloat(target.getAttribute('data-y')) || 0);
+        target.style.width  = event.rect.width + 'px';
+        target.style.height = event.rect.height + 'px';
+        x += event.deltaRect.left;
+        y += event.deltaRect.top;
+        target.style.webkitTransform = target.style.transform =
+            'translate(' + x + 'px,' + y + 'px)';
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
+        target.style.textAlign="center";
+        target.style.display='table-cell';
+        target.style.verticalAlign='middle';
+        var parent_id=target.parentNode.id;
+        json=findDataByLayout(parent_id);
+        for(var i=0;i!=json.length;i++){
+            if(json[i].node_id==target.id){
+              json[i].y=target.getBoundingClientRect().top-target.parentNode.getBoundingClientRect().top+'px';
+              json[i].x=target.getBoundingClientRect().left-target.parentNode.getBoundingClientRect().left+'px';
+              json[i].width=target.style.width;
+              json[i].height=target.style.height;
+              break;
+            }
+        } 
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      });
+    /*ON DRAGGING,PLACE THE FIELD AT THE CURSOR POSITION*/
+    function dragMoveListener (event) {
+      var target = event.target,
+          // keep the dragged position in the data-x/data-y attributes
+          x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+          y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+          console.log("before:");
+      console.log("x:"+parseFloat(target.getAttribute('data-x'))+"Y:"+parseFloat(target.getAttribute('data-y')));
+      console.log("after:");
+      console.log("x:"+x+"y:"+y);
+      // translate the element
+      target.style.webkitTransform =
+      target.style.transform =
+        'translate(' + x + 'px, ' + y + 'px)';
+
+      // update the posiion attributes
+      target.setAttribute('data-x', x);
+      target.setAttribute('data-y', y);
+
+    }
+  </script>
+  <script >
+    /*IT FOR TEXT FIELDS , PASSWORD FIELD , DATE FIELD AND FILE FIELD*/
+    interact('.resize-drag2')
+     .draggable({
+        onmove: window.dragMoveListener,/*ON DRAGGING*/
+        /*WHEN DRAGGING IS OVER FOR FIELDS*/
+        onend: function(event){
+          var parent_id=event.target.parentNode.id;
+           json=findDataByLayout(parent_id);
+          for(var i=0;i!=json.length;i++){
+            if(json[i].node_id==event.target.id){
+              json[i].y=event.target.getBoundingClientRect().top-event.target.parentNode.getBoundingClientRect().top+'px';
+              json[i].x=event.target.getBoundingClientRect().left-event.target.parentNode.getBoundingClientRect().left+'px';
+              break;
+            }
+          } 
+          storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+        },
+        restrict: {
+          restriction: 'parent',/*DRAGGING RESTRICT WITH IN  PARENT ELEMENT*/
+          elementRect: { top: 1, left: 1, bottom: 1, right: 1 }
+        },
+     })
+    .resizable({
+      edges: { left: true, right: true, bottom: true, top: true },
+      restrictEdges:{/*RESIZING FIELD RESTRICT UPTO PARENT ELEMENT */
+          outer: 'parent',
+          endOnly: true,
+        },
+      restrictSize:{/*RESIZING FIELD RESTRICT TO SPECIFIC WIDTH AND HEIGHT*/
+          min:{width:172,height:56},
+          max: { width: 678, height: 70 },
+      },
+      inertia: true
+    })
+    /*WHEN RESIZING FIELD IS  OVER*/
+    .on('resizemove', function (event) {
+      var target = event.target,
+      x = (parseFloat(target.getAttribute('data-x')) || 0),
+      y = (parseFloat(target.getAttribute('data-y')) || 0);
+      target.style.width  = event.rect.width + 'px';
+      target.style.height = event.rect.height + 'px';
+      x += event.deltaRect.left;
+      y += event.deltaRect.top;
+      target.style.webkitTransform = target.style.transform =
+          'translate(' + x + 'px,' + y + 'px)';
+      target.setAttribute('data-x', x);
+      target.setAttribute('data-y', y);
+      target.style.textAlign='center';
+      console.log(event.target.children[1].children[0]);
+      var wdt=target.style.width.replace('px','')-22;
+      var ht=target.style.height.replace('px','')-23;
+      target.children[1].children[0].style.width=wdt+'px';
+      target.children[1].children[0].style.height=ht+'px';
+      var json;
+      var parent_id=target.parentNode.id;
+       json=findDataByLayout(parent_id);
+      for(var i=0;i!=json.length;i++){
+          if(json[i].node_id==target.id){
+            json[i].y=target.getBoundingClientRect().top-target.parentNode.getBoundingClientRect().top+'px';
+            json[i].x=target.getBoundingClientRect().left-target.parentNode.getBoundingClientRect().left+'px';
+            json[i].width=target.style.width;
+            json[i].height=target.style.height;
+            break;
+          }
+      } 
+      storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+    });
+  </script>
+  <script >
+    /*IT ONLY FOR TABLE FIELD*/
+    interact('.resize-drag3')
+     .draggable({
+        onmove: window.dragMoveListener,/*ON DRAGGING*/
+        /*WHEN DRAGGING IS OVER FOR FIELDS*/
+        onend: function(event){
+          var parent_id=event.target.parentNode.id;
+           json=findDataByLayout(parent_id);
+          for(var i=0;i!=json.length;i++){
+            if(json[i].node_id==event.target.id){
+              json[i].y=event.target.getBoundingClientRect().top-event.target.parentNode.getBoundingClientRect().top+'px';
+              json[i].x=event.target.getBoundingClientRect().left-event.target.parentNode.getBoundingClientRect().left+'px';
+              break;
+            }
+          } 
+          storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+        },
+        restrict: {/*DRAGGING RESTRICT WITH IN PARENT ELEMENT*/
+          restriction: 'parent',
+          elementRect: { top: 1, left: 1, bottom: 1, right: 1 }
+        },
+      })
+      .resizable({
+        edges: { left: true, right: true, bottom: true, top: true },
+        restrictEdges:{/*RESIZING FIELD RESTRICT UPTO PARENT ELEMENT*/
+          outer: 'parent',
+          endOnly: true,
+        },
+        restrictSize:{/*RESIZING FIELD RESTRICT TO SPECIFIC WIDTH AND HEIGHT*/
+          min:{width:100,height:105},
+          max: { width: 678,height:400 },
+        },
+        inertia: true
+      })
+      /*WHEN RESIZING FIELD IS  OVER*/
+      .on('resizemove', function (event) {
+          var target = event.target,
+          x = (parseFloat(target.getAttribute('data-x')) || 0),
+          y = (parseFloat(target.getAttribute('data-y')) || 0);
+          target.style.width  = event.rect.width + 'px';
+          target.style.height = event.rect.height + 'px';
+          x += event.deltaRect.left;
+          y += event.deltaRect.top;
+          target.style.webkitTransform = target.style.transform =
+              'translate(' + x + 'px,' + y + 'px)';
+          target.setAttribute('data-x', x);
+          target.setAttribute('data-y', y);
+          target.style.textAlign='center';
+          console.log(event.target.children[1].children[0]);
+          var wdt=target.style.width.replace('px','')-22;
+          var ht=target.style.height.replace('px','')-23;
+          target.children[1].children[0].style.width=wdt+'px';
+          target.children[1].children[0].style.height=ht+'px';
+          var json;
+          var parent_id=target.parentNode.id;
+           json=findDataByLayout(parent_id);
+          for(var i=0;i!=json.length;i++){
+              if(json[i].node_id==target.id){
+                json[i].y=target.getBoundingClientRect().top-target.parentNode.getBoundingClientRect().top+'px';
+                json[i].x=target.getBoundingClientRect().left-target.parentNode.getBoundingClientRect().left+'px';
+                json[i].width=target.style.width;
+                json[i].height=target.style.height;
+                break;
+              }
+          } 
+          storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      });
+  </script>
+  <script >
+    /*IT FOR CHECK BOX AND RADIO BUTTONS*/
+    interact('.resize-drag4')
+     .draggable({
+        onmove: window.dragMoveListener,/*ON DRAGGING*/
+        onend: function(event){/*WHEN DRAGGING IS OVER FOR FIELDS*/
+          var parent_id=event.target.parentNode.id;
+           json=findDataByLayout(parent_id);
+           for(var i=0;i!=json.length;i++){
+            if(json[i].node_id==event.target.id){
+              json[i].y=event.target.getBoundingClientRect().top-event.target.parentNode.getBoundingClientRect().top+'px';
+              json[i].x=event.target.getBoundingClientRect().left-event.target.parentNode.getBoundingClientRect().left+'px';
+              break;
+            }
+          } 
+          storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+        },
+        restrict: {/*DRAGGING IS RESTRICT WITH IN PARENT ELEMENT*/
+          restriction: 'parent',
+          elementRect: { top: 1, left: 1, bottom: 1, right: 1 }
+        },
+     })
+    .resizable({
+      edges: { left: true, right: true, bottom: true, top: true },
+      restrictEdges:{/*RESIZING FIELD RESTRICT UPTO PARENT ELEMENT ONLY*/
+          outer: 'parent',
+          endOnly: true,
+        },
+      restrictSize:{/*RESIZING FIELD RESTRICT TO SPECIFIC WIDTH AND HEIGHT*/
+          min:{width:172,height:56},
+          max:{width:340, height:360},
+        },
+      inertia: true
+    })
+    /*WHEN RESIZING FIELD IS  OVER*/
+    .on('resizemove', function (event) {
+      var target = event.target,
+      x = (parseFloat(target.getAttribute('data-x')) || 0),
+      y = (parseFloat(target.getAttribute('data-y')) || 0);
+      target.style.width  = event.rect.width + 'px';
+      target.style.height = event.rect.height + 'px';
+      x += event.deltaRect.left;
+      y += event.deltaRect.top;
+      target.style.webkitTransform = target.style.transform =
+          'translate(' + x + 'px,' + y + 'px)';
+      target.setAttribute('data-x', x);
+      target.setAttribute('data-y', y);
+      var parent_id=target.parentNode.id;
+      json=findDataByLayout(parent_id);
+      for(var i=0;i!=json.length;i++){
+          if(json[i].node_id==target.id){
+            json[i].y=target.getBoundingClientRect().top-target.parentNode.getBoundingClientRect().top+'px';
+            json[i].x=target.getBoundingClientRect().left-target.parentNode.getBoundingClientRect().left+'px';
+            json[i].width=target.style.width;
+            json[i].height=target.style.height;
+            break;
+          }
+      } 
+      storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+    });
+  </script>
+  <script>
+    /*IT FOR BUTTON FIELD*/
+    interact('.resize-drag5')
+     .draggable({
+        onmove: window.dragMoveListener,/*ON DRAGGING*/
+        onend: function(event){/*WHEN DRAGGING IS OVER FOR FIELDS*/
+          var parent_id=event.target.parentNode.id;
+          json=findDataByLayout(parent_id);
+          for(var i=0;i!=json.length;i++){
+            if(json[i].node_id==event.target.id){
+              json[i].y=event.target.getBoundingClientRect().top-event.target.parentNode.getBoundingClientRect().top+'px';
+             json[i].x=event.target.getBoundingClientRect().left-event.target.parentNode.getBoundingClientRect().left+'px';
+              break;
+            }
+          } 
+          storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+        },
+        restrict: {/*DRAGGING RESTRICT WITH IN PARENT ELEMENT*/
+          restriction: 'parent',
+          elementRect: { top: 1, left: 1, bottom: 1, right: 1 }
+        },
+     })
+    .resizable({
+      edges: { left: true, right: true, bottom: true, top: true },
+      restrictEdges:{/*RESIZING FIELD RESTRICT UPTO PARENT ELEMENT*/
+          outer: 'parent',
+          endOnly: true,
+        },
+      restrictSize:{/*RESIZING FIELD RESTRICT TO SPECIFIC WIDTH AND HEIGHT*/
+          min:{width:90,height:35},
+          max: { width: 225, height: 60 },
+        },
+      inertia: true
+    })
+    /*WHEN RESIZING FIELD IS  OVER*/
+    .on('resizemove', function (event) {alert
+      var target = event.target,
+      x = (parseFloat(target.getAttribute('data-x')) || 0),
+      y = (parseFloat(target.getAttribute('data-y')) || 0);
+      target.style.width  = event.rect.width + 'px';
+      target.style.height = event.rect.height + 'px';
+      x += event.deltaRect.left;
+      y += event.deltaRect.top;
+      target.style.webkitTransform = target.style.transform =
+          'translate(' + x + 'px,' + y + 'px)';
+      target.setAttribute('data-x', x);
+      target.setAttribute('data-y', y);
+      target.style.textAlign="center";
+      target.style.display='table-cell';
+      target.style.verticalAlign='middle';
+      var parent_id=target.parentNode.id;
+      json=findDataByLayout(parent_id);
+      for(var i=0;i!=json.length;i++){
+          if(json[i].node_id==target.id){
+            json[i].y=target.getBoundingClientRect().top-target.parentNode.getBoundingClientRect().top+'px';
+            json[i].x=target.getBoundingClientRect().left-target.parentNode.getBoundingClientRect().left+'px';
+            json[i].width=target.style.width;
+            json[i].height=target.style.height;
+             break;
+          }
+      } 
+      storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+    });
+  </script> 
+  <script type="text/javascript">
+    /*FOR UNDO AND REDO OPERATIONS WE USE THE STACK CLASS FOR STORING ACTIONS OF FIELDS*/
+    class Stack { 
+      constructor() 
+      { 
+          this.items = []; 
+      } 
+      // push(item) 
+      push(element) 
+      { 
+          this.items.push(element); 
+      } 
+      // pop() 
+      pop() 
+      { 
+        if (this.items.length == 0) 
+          return "Underflow"; 
+        return this.items.pop(); 
+      } 
+      // peek() 
+      peek() 
+      { 
+        return this.items[this.items.length - 1]; 
+      } 
+    } 
+  </script>
+  
+  <script type="text/javascript">
+      var dragged=null,json_data1=[],json_data2=[],json_data3=[],json_data4=[],json_data5=[],json_data6=[],button_id=1,text_id=1,num_id=1,check_id=1,header_id=1,radio_id=1,password_id=1,file_id=1,mail_id=1,phone_id=1,dropDown_id=1,image_id=1,address_id=1,date_id=1,id,no_of_options=0,no_of_rows,no_of_columns,tableData=[],text,option_names,drop_zone=1,json=[],db_no,dataIndex=-1,input_radio=2,Radio_opt=2,input_check=2,check_opt=2,defaultValue,table_id=1,zoneHeight=0,form_name='UNTITLE FORM',flow_name='',edit_element,stack = new Stack(),label="Label";
+      /*WHEN DROPPING FIELDS TO FORM AREA PREVENT ALL OTHER EVNETS*/
+      function allowDrop(event) {
+        event.preventDefault();
+        }
+      /*WHEN FIELDS DRAG START,FIELDS HAVE TO ASSIGN THE 'TEXT' THAT STORE FIELD ID*/
+      function dragStart(event) {
+        if (event.target.className !== "draggable") return;
+        dragged=event.target;
+        event.dataTransfer.setData("text", event.target.id); }
+      /*CLICK ON THE DEFAULT LAYOUT*/
+      function opendefault(event){
+        document.getElementById('dropZone1').style.display="block";
+        document.getElementById('dropZone2').style.display="none";
+        document.getElementById('dropZone3').style.display="none";
+        document.getElementById('form1').style.display="none";
+        document.getElementById('form2').style.display="none";
+        document.getElementById('form3').style.display="none";
+        drop_zone=1;    }
+      /*CLICK ON THE 2COLUMN LAYOUT*/
+      function open2col(event){
+        document.getElementById('dropZone1').style.display="none";
+        document.getElementById('dropZone2').style.display="block";
+        document.getElementById('dropZone3').style.display="none";
+        document.getElementById('form1').style.display="none";
+        document.getElementById('form2').style.display="none";
+        document.getElementById('form3').style.display="none";
+        drop_zone=2;    }
+      /*CLICK ON THE 3COLUMN LAYOUT*/
+      function open3col(event){
+        document.getElementById('dropZone1').style.display="none";
+        document.getElementById('dropZone2').style.display="none";
+        document.getElementById('dropZone3').style.display="block";
+        document.getElementById('form1').style.display="none";
+        document.getElementById('form2').style.display="none";
+        document.getElementById('form3').style.display="none";
+        drop_zone=3;    }
+      /*NEWLY ADDING FIELDS ARE PLACED AT AFTER LAST ELEMENT OF FORM AREA SO WE FIND HIGHTEST TOP OF FIELD*/
+      function findZoneHeight(json){
+            var height=0;
+            if(json===null){
+              return height;
+            }
+            else{
+              for(var i=0;i<json.length;i++){
+                  var temp=(Number(json[i].y.replace('px',''))+Number(json[i].margin_top.replace('px',''))+Number(json[i].margin_bottom.replace('px',''))+Number(json[i].height.replace('px','')));
+                  if(temp>height){
+                    height=temp;
+                  }
+              }
+              return height;
+            }}
+      /*WHEN FIELDS ARE DROPPED*/
+      function drop(ev) {
+          ev.preventDefault();
+          var x = document.getElementById("dropZone1").lastChild;
+          dragged.style.border="";var col=0;
+          json=findDataByLayout(ev.target.id);
+          switch(ev.target.id){
+            case "dropZone1":col=1;break;
+            case "col2page1":col=2;break;
+            case "col2page2":col=3;break;
+            case "col3page1":col=4;break;
+            case "col3page2":col=5;break;
+            case "col3page3":col=6;break;
+          }
+          zoneHeight=findZoneHeight(json);
+          var type,width,height,margin_top,margin_left,margin_bottom,margin_right,padding_top,padding_bottom,padding_left,padding_right,font_size,placeholder,text,align,font_size;
+          var data = ev.dataTransfer.getData("text");
+
+          if(data==="_button"){
+            var nodecopy=document.getElementById('b').cloneNode(true);
+            nodecopy.id = "b"+button_id;
+            type="Button";width=90+'px';height=35+'px';font_size=16+'px';margin_top=2+'px';
+            margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="";text="Button";align="left";
+            button_id=button_id+1; defaultValue='';
+          }
+          else if(data==="_text"){
+              nodecopy=document.getElementById('text').cloneNode(true);
+              nodecopy.id="text"+text_id;
+
+              type="Text";width=172+'px';height=56+'px';font_size=16+'px';margin_top=2+'px';
+               margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="enter text";text="";align="left";
+              text_id=text_id+1;defaultValue='';
+          }
+          else if(data==="_num"){
+              nodecopy=document.getElementById('num').cloneNode(true);
+              nodecopy.id="num"+num_id;
+
+              type="Number";width=172+'px';height=56+'px';font_size=16+'px';margin_top=2+'px';
+               margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="enter Number";text="";align="left";
+              num_id=num_id+1;defaultValue='';
+          }
+          else if(data==="_check"){
+            nodecopy=document.getElementById('check').cloneNode(true);
+            nodecopy.id="check"+check_id;
+            type="Check Box";width=192+'px';height=80+'px';font_size=16+'px';margin_top=2+'px';
+            margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=1;option_names=["option"];placeholder="";text="";align="left";
+            check_id=check_id+1;defaultValue='';
+          }
+          else if(data==="_password"){
+            nodecopy=document.getElementById('password').cloneNode(true);
+            nodecopy.id="password"+password_id;
+            type="Password";width=172+'px';height=56+'px';font_size=16+'px';margin_top=2+'px';
+            margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="enter password";text="";align="left";
+            password_id=password_id+1;defaultValue='';
+          } 
+          else if(data==="_header"){
+            nodecopy=document.getElementById('header').cloneNode(true);
+            nodecopy.id="head"+header_id;
+            type="Header";width=160+'px';height=56+'px';font_size=36+'px';margin_top=2+'px';
+            margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=2+'px';padding_bottom=2+'px';padding_left=2+'px';padding_right=2+'px';no_of_options=0;option_names=[];placeholder="";text="Heading";align="left";font_size=36+'px';
+            header_id=header_id+1;defaultValue='';
+          }
+          else if(data==="_radio"){
+            nodecopy=document.getElementById('radio').cloneNode(true);
+            nodecopy.id="r"+radio_id;
+            type="Radio";width=192+'px';height=80+'px';font_size=16+'px';margin_top=2+'px';
+            margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';
+            no_of_options=1;option_names=["option"];placeholder="";text="";align="left";
+            radio_id=radio_id+1;defaultValue='';
+          }
+          else if(data==="_file"){
+            nodecopy=document.getElementById('file').cloneNode(true);
+            nodecopy.id='file'+file_id;
+            type="File";width=260+'px';height=56+'px';font_size=16+'px';margin_top=2+'px';
+            margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="";text="";align="left";
+            file_id=file_id+1;defaultValue='';
+          }     
+          else if(data==='_date'){
+            nodecopy=document.getElementById('date').cloneNode(true);
+            nodecopy.id='date'+date_id;
+            type="Date";width=172+'px';height=56+'px';font_size=16+'px';margin_top=2+'px';margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="";text="";align="left";
+            date_id=date_id+1;defaultValue='';
+          }
+          else if(data=='_mail'){
+            nodecopy=document.getElementById('mail').cloneNode(true);
+            nodecopy.id='mail'+mail_id;
+            type="Email";width=172+'px';height=56+'px';font_size=16+'px';margin_top=2+'px';margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="";text="";align="left";
+            mail_id=mail_id+1;defaultValue='';placeholder='enter email';
+          }
+          else if(data=='_address'){
+            nodecopy=document.getElementById('address').cloneNode(true);
+            nodecopy.id='address'+address_id;
+            type="Address";width=172+'px';height=56+'px';font_size=16+'px';margin_top=2+'px';margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="";text="";align="left";
+            address_id=address_id+1;defaultValue='';
+          }
+          else if(data=='_phone'){
+            nodecopy=document.getElementById('phone').cloneNode(true);
+            nodecopy.id='phone'+phone_id;
+            type="Phone";width=172+'px';height=56+'px';font_size=16+'px';margin_top=2+'px';margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="";text="";align="left";
+            phone_id=phone_id+1;defaultValue='';placeholder="enter phone no.";
+          }
+          else if(data=='_dropdown'){
+            nodecopy=document.getElementById('dropDown').cloneNode(true);
+            nodecopy.id='DropDown'+dropDown_id;
+            type="DropDown";width=172+'px';height=56+'px';font_size=16+'px';margin_top=2+'px';margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="";text="";align="left";
+            dropDown_id=dropDown_id+1;defaultValue='';
+          }
+          else if(data=='_image'){
+            nodecopy=document.getElementById('image').cloneNode(true);
+            nodecopy.id='image'+image_id;
+            type="Image";width=172+'px';height=56+'px';font_size=16+'px';margin_top=2+'px';margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="";text="";align="left";
+            image_id=image_id+1;defaultValue='';
+          }
+          else if(data=='_table'){
+            nodecopy=document.getElementById('table').cloneNode(true);
+            nodecopy.id='table'+table_id;
+            type="Table";width=180+'px';height=100+'px';font_size=16+'px';margin_top=2+'px';margin_bottom=2+'px';margin_left=2+'px';margin_right=2+'px';padding_top=1+'px';padding_bottom=1+'px';padding_left=1+'px';padding_right=1+'px';no_of_options=0;option_names=[];placeholder="";text="";align="left";font_size=20+'px';
+            table_id=table_id+1;defaultValue='';no_of_columns=2;no_of_rows=2;tableData=[];
+          }
+          nodecopy.style.position = "absolute";
+          console.log(zoneHeight);
+          nodecopy.style.top = zoneHeight+'px';
+          ev.target.appendChild(nodecopy);
+          stack.push({"operation":"add","id":nodecopy.id});      
+          y=(nodecopy.getBoundingClientRect().top-nodecopy.parentNode.getBoundingClientRect().top)+'px';
+          x=(nodecopy.getBoundingClientRect().left-nodecopy.parentNode.getBoundingClientRect().left)+'px';
+          var data={"node_id":nodecopy.id,"type":type,"status":"Active","width":width,"height":height,"margin_top":margin_top,"margin_bottom":margin_bottom,"margin_left":margin_left,"margin_right":margin_right,"padding_top":padding_top,"padding_bottom":padding_bottom,"padding_left":padding_left,"padding_right":padding_right,"font_size":font_size,"options":no_of_options,"option_names":option_names,"column":col,"placeholder":placeholder,"text":text,"defaultValue":defaultValue,"value":[],"x":x,"y":y,"no_of_table_columns":no_of_columns,"no_of_table_rows":no_of_rows,"table_Data":tableData,"label":label};
+          json.push(data);
+          storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+      /*WHEN CLICK ON UNDO BUTTON*/
+      function Undo(event){
+        var node=stack.pop(); 
+        switch(node.operation){
+          case "add":
+            if(node!='Underflow'){
+              var remove_id=document.getElementById(node.id);
+              json= json.filter(function(item) { 
+                    return item.node_id !== node.id ;  
+               });
+              remove_id.remove();
+              document.getElementById("properties").style.display='none';
+              storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+            }
+            break;
+          case "delete":
+              if(node!='Underflow'){var element;console.log(node.data[0].type);
+                    switch(node.data[0].type){
+                        case 'Button':
+                          element=document.getElementById('b').cloneNode(true);
+                          element.id=node.id;
+                          element.style.width=node.data[0].width;
+                          element.style.height=node.data[0].height;
+                          element.innerHTML=node.data[0].text;
+                          element.style.fontSize=node.data[0].font_size;
+                          break;
+                        case 'Text':
+                          element=document.getElementById('text').cloneNode(true);
+                          element.id=node.data[0].node_id;
+                          element.style.width=node.data[0].width;
+                          var wdt=node.data[0].width.replace('px','')-22;
+                          element.children[0].children[0].style.width=wdt+'px';
+                          element.style.height=node.data[0].heigh;
+                          var ht=node.data[0].height.replace('px','')-41;
+                          element.children[0].children[0].style.height=ht+'px';
+                          element.children[0].children[0].style.fontSize=node.data[0].font_size;
+                          element.children[0].children[0].placeholder=node.data[0].placeholder;
+                          break;
+                        case 'Number':
+                          element=document.getElementById('num').cloneNode(true);
+                          element.id=node.data[0].node_id;
+                          element.style.width=node.data[0].width;
+                          var wdt=node.data[0].width.replace('px','')-22;
+                          element.children[0].children[0].style.width=wdt+'px';
+                          element.style.height=node.data[0].heigh;
+                          var ht=node.data[0].height.replace('px','')-41;
+                          element.children[0].children[0].style.height=ht+'px';
+                          element.children[0].children[0].style.fontSize=node.data[0].font_size;
+                          element.children[0].children[0].placeholder=node.data[0].placeholder;
+                          break;
+                        case 'Check Box':
+                            element=document.getElementById('check').cloneNode(true);
+                            element.id=node.data[0].node_id;
+                            element.innerHTML="";
+                            element.style.width=node.data[0].width;
+                            element.style.height=node.data[0].height;
+                            for(var j=0;j<node.data[0].options;j++){
+                                  var ele=document.getElementById('').cloneNode(true);
+                                  ele.children[3].childNodes[0].textContent=node.data[0].option_names[j];
+                                  ele.childNodes[1].name=i;
+                                  element.appendChild(ele);
+                            }
+                            element.style.fontSize=node.data[0].font_size;
+                            break;
+                        case 'Header':
+                          element=document.getElementById('header').cloneNode(true);
+                          element.id=node.data[0].node_id;
+                          element.style.width=node.data[0].width;
+                          element.style.height=node.data[0].height;
+                          element.innerHTML=node.data[0].text;
+                          element.style.fontSize=node.data[0].font_size;
+                          break;
+                        case 'Radio':
+                            element=document.getElementById('radio').cloneNode(true);
+                            element.id=node.data[0].node_id;
+                            element.innerHTML="";
+                            element.style.width=node.data[0].width;
+                            element.style.height=node.data[0].height;
+                            for(var j=0;j<node.data[0].options;j++){
+                              var ele=document.getElementById('radio_option').cloneNode(true);
+                              ele.children[1].childNodes[0].textContent=node.data[0].option_names[j];
+                              ele.childNodes[1].name=i;
+                              element.appendChild(ele);
+                            }
+                            element.style.fontSize=node.data[0].font_size;
+                            break;
+                        case 'Password':
+                          element = document.getElementById('password').cloneNode(true);
+                          element.id=node.data[0].node_id;
+                          element.style.width=node.data[0].width;
+                          var wdt=node.data[0].width.replace('px','')-22;
+                          element.children[0].children[0].style.width=wdt+'px';
+                          element.style.height=node.data[0].heigh;
+                          var ht=node.data[0].height.replace('px','')-23;
+                          element.children[0].children[0].style.height=ht+'px';
+                          element.children[0].children[0].style.fontSize=node.data[0].font_size;
+                          element.children[0].children[0].placeholder=node.data[0].placeholder;
+                          break;
+                        case 'File':
+                          element=document.getElementById('file').cloneNode(true);
+                          element.id=node.data[0].node_id;
+                          element.style.width=node.data[0].width;
+                          var wdt=node.data[0].width.replace('px','')-22;
+                          element.children[0].children[0].style.width=wdt+'px';
+                          element.style.height=node.data[0].heigh;
+                          var ht=node.data[0].height.replace('px','')-23;
+                          element.children[0].children[0].style.height=ht+'px';
+                          element.children[0].children[0].style.fontSize=node.data[0].font_size;
+                          break;
+                        case 'Date':
+                          element=document.getElementById('date').cloneNode(true);
+                          element.id=node.data[0].node_id;
+                          element.style.width=node.data[0].width;
+                          var wdt=node.data[0].width.replace('px','')-22;
+                          element.children[0].children[0].style.width=wdt+'px';
+                          element.style.height=node.data[0].heigh;
+                          var ht=node.data[0].height.replace('px','')-23;
+                          element.children[0].children[0].style.height=ht+'px';
+                          element.children[0].children[0].style.fontSize=node.data[0].font_size;
+                          break;
+                      }
+                      if(node.data[0].margin_top){element.style.marginTop=node.data[0].margin_top;}
+                      if(node.data[0].margin_bottom){element.style.marginBottom=node.data[0].margin_bottom;}
+                      if(node.data[0].margin_left){element.style.marginLeft=node.data[0].margin_left;}
+                      if(node.data[0].margin_right){element.style.marginRight=node.data[0].margin_right;}
+                      if(node.data[0].padding_top){element.style.paddingTop=node.data[0].padding_top;}
+                      if(node.data[0].padding_bottom){element.style.paddingBottom=node.data[0].padding_bottom;}
+                      if(node.data[0].padding_left){element.style.paddingLeft=node.data[0].padding_left;}
+                      if(node.data[0].padding_right){element.style.paddingRight=node.data[0].padding_right;}
+                      element.style.position = "sticky";
+                      element.style.top=node.data[0].y;
+                      element.style.left=node.data[0].x;
+                      switch(node.data[0].column){
+                        case 1: document.getElementById('dropZone1').appendChild(element);break;
+                        case 2: document.getElementById('col2page1').appendChild(element);break;
+                        case 3: document.getElementById('col2page2').appendChild(element);break;
+                        case 4: document.getElementById('col3page1').appendChild(element);break;
+                        case 5: document.getElementById('col3page2').appendChild(element);break;
+                        case 6: document.getElementById('col3page3').appendChild(element);break;
+                      }
+                      stack.push({"operation":"add","id":node.id});  
+                      var data={"node_id":node.id,"type":node.data[0].type,"status":"Active","width":node.data[0].width,"height":node.data[0].height,"margin_top":node.data[0].margin_top,"margin_bottom":node.data[0].margin_bottom,"margin_left":node.data[0].margin_left,"margin_right":node.data[0].margin_right,"padding_top":node.data[0].padding_top,"padding_bottom":node.data[0].padding_bottom,"padding_left":node.data[0].padding_left,"padding_right":node.data[0].padding_right,"font_size":node.data[0].font_size,"options":node.data[0].no_of_options,"option_names":node.data[0].option_names,"column":node.data[0].col,"placeholder":node.data[0].placeholder,"text":node.data[0].text,"align":node.data[0].align,"font_size":node.data[0].font_size,'defaultValue':node.data[0].defaultValue,'value':node.data[0].value,'x':node.data[0].x,'y':node.data[0].y,'button_type':"button"};
+                      json.push(data);
+                      storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+              }
+        } }
+      /*WHEN CLICK ON REDO BUTTON*/
+      function Redo(event){     }
+      /*WHEN CLICK ON SAVE BUTTON*/
+      function save(e){
+        var data;
+        switch(drop_zone){
+          case 1:data=json_data1;break;
+          case 2:data=json_data2.concat(json_data3);break;
+          case 3:data=json_data4.concat(json_data5.concat(json_data6));break;
+        }; 
+        if(form_name=='UNTITLE FORM'){
+          alert("Please Enter Form Name");
+          return;
+        }
+        if(flow_name.length==0){
+          flow_name="flow_name";
+          return;
+        }
+        console.log(form_name);
+        $.ajax({
+          type:"POST",
+          contentType: 'application/json',
+          data:JSON.stringify({'label1':form_name,'fetch':flow_name,'game':data,'form_id':'0','version':'0','flow_id':'{{flowId}}','node_id':'{{nodeId}}' }),
+          dataType: 'json',
+           url :'http://127.0.0.1:5001/api/v1/form/',
+           success : function(r){
+           console.log(r.id);
+           alert("Successfully saved...");
+            window.location = 'http://127.0.0.1:5000/api/v1/flow/viewFlow/{{flowId}}'
+           /*document.getElementById('dropZone1').style.display="none";
+           document.getElementById('dropZone2').style.display="none";
+           document.getElementById('dropZone3').style.display="none";
+           document.getElementById('form_name').value="";*/
+
+          },
+          fail : function(){
+            alert("Failed");
+          },
+          error : function(error){console.log(error);alert("There is error while saving");}
+        });
+       /* document.getElementById('sidenav-right').style.display='none';*/
+           }
+      /*WHEN CLICK ON PREVIEW BUTTON*/
+      function Preview(id){
+<!--          alert(id)-->
+          document.getElementById('dropZone1').style.display='none';
+          document.getElementById('dropZone2').style.display='none';
+          document.getElementById('dropZone3').style.display='none';
+          $.ajax({
+            type:"GET",
+            url:'http://127.0.0.1:5001/api/v1/form/'+id,
+            contentType: 'application/json;charset=utf-8',
+            dataType:'json',
+            cache : false,
+            success:function(e){
+                console.log(e)
+                document.getElementById('form1').innerHTML="";
+                document.getElementById('form2page1').innerHTML="";
+                document.getElementById('form2page2').innerHTML="";
+                document.getElementById('form3page1').innerHTML="";
+                document.getElementById('form3page2').innerHTML="";
+                document.getElementById('form3page3').innerHTML="";
+                var l=e.length;var item;
+                var element;
+                var obj = e
+                var game_l=obj.nodes.length;
+                var divPrevTop1=0;var divPrevTop2=0;var divPrevTop3=0;
+                data=obj.nodes;/*sortData(e[l-1].game,game_l);*/
+                for(var i=0;i<game_l;i++){
+                  item=data[i].data;
+
+                  if(item.status=="Active"){
+                      switch(item.type){
+                        case 'Button':
+                          element=document.getElementById('form_b').cloneNode(true);
+                          element.id=item.node_id;
+                          element.type=item.button_type
+                          element.style.width=item.width;
+                          element.style.height=item.height;
+                          element.innerHTML=item.text;
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          console.log(element);
+                          break;
+                        case 'Text':
+                          element=document.getElementById('form_text').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.children[1].children[0].value=item.defaultValue;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.heigh;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].value=item.defaultvalue;
+                          element.children[1].children[0].placeholder=item.placeholder;
+                          break;
+                        case 'Number':
+                          element=document.getElementById('form_num').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.children[1].children[0].value=item.defaultValue;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.heigh;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].value=item.defaultvalue;
+                          element.children[1].children[0].placeholder=item.placeholder;
+                          break;
+                        case 'Check Box':
+                            element=document.getElementById('form_check').cloneNode(true);
+                            element.id=item.node_id;
+                            element.children[0].innerHTML=item.label;
+                            /*element.innerHTML="";*/
+                            element.style.width=item.width;
+                            element.style.height=item.height;
+                            for(var j=0;j<item.options;j++){
+                                  var ele=document.getElementById('check_option').cloneNode(true);
+                                  ele.children[1].childNodes[0].textContent=item.option_names[j];
+                                  ele.childNodes[1].name=i;
+                                  element.appendChild(ele);
+                            }
+                            element.style.fontSize=item.font_size;
+                            if(item.font_style){element.style.fontStyle=item.font_style;}
+                            if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                            break;
+                        case 'Header':
+                          element=document.getElementById('form_header').cloneNode(true);
+                          element.id=item.node_id;
+                          element.style.width=item.width;
+                          element.style.height=item.height;
+                          element.innerHTML=item.text;
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          break;
+                        case 'Radio':
+                            element=document.getElementById('form_radio').cloneNode(true);
+                            element.id=item.node_id;
+                            element.children[0].innerHTML=item.label;
+                            element.style.width=item.width;
+                            element.style.height=item.height;
+                            for(var j=0;j<item.options;j++){
+                              var ele=document.getElementById('radio_option').cloneNode(true);
+                              ele.children[1].childNodes[0].textContent=item.option_names[j];
+                              ele.childNodes[1].name=i;
+                              element.appendChild(ele);
+                            }
+                            element.style.fontSize=item.font_size;
+                            if(item.font_style){element.style.fontStyle=item.font_style;}
+                            if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                            break;
+                        case 'Password':
+                          element = document.getElementById('form_password').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.heigh;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].placeholder=item.placeholder;
+                          break;
+                        case 'File':
+                          element=document.getElementById('form_file').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.heigh;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].placeholder=item.placeholder;break;
+                        case 'Date':
+                          element=document.getElementById('form_date').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.heigh;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].placeholder=item.placeholder;break;
+                        case 'Phone':
+                          element=document.getElementById('form_phone').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.heigh;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].placeholder=item.placeholder;break;
+                        case 'Email':
+                          element=document.getElementById('form_mail').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.heigh;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].placeholder=item.placeholder;break;
+                        case 'Table':
+                          element=document.getElementById('form_table').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          element.style.height=item.heigh;
+                          for(i=0;i<item.no_of_table_rows;i++){
+                            var row=element.children[1].children[0].insertRow(-1);
+                            for(j=0;j<item.no_of_table_columns;j++){
+                              var exist=0;var cell=row.insertCell(j);
+                              for(k=0;k<item.table_Data.length;k++){
+                                if(item.table_Data[k].event_id==('r'+(i+1)+'c'+(j+1))){
+                                  exist=1;
+                                  break;
+                                }
+                              }
+                              if(exist==1){
+                                cell.innerHTML=item.table_Data[k].value;
+                                cell.id=item.table_Data[k].event_id;
+                              }
+                              else{
+                                var input=document.createElement('input');
+                                input.type='text';
+                                input.id='r'+(i+1)+'c'+(j+1);
+                                input.style.width='60px';
+                                input.style.border='none';
+                                input.style.background='none';
+                                cell.appendChild(input);
+                              }
+                              
+                            }
+                          }
+                          var tds=element.children[1].children[0].getElementsByTagName('td');
+                          for(k=0;k<tds.length;k++){
+                            tds[k].style.border="1px solid black";
+                          }
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          break;
+                        case 'Address':
+                          element=document.getElementById('form_address').cloneNode(true);
+                          element.id=item.node_id;
+                          element.style.width=item.width;
+                          element.style.height=item.height;
+                          element.style.font_size=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          break;
+                        /*case 'DropDown':
+                          element=documen.getElementById('form_dropdown').cloneNode(true);
+                          element.id=item.node_id;
+                          element.style.width=item.width;
+                          element.style.height=item.height;
+                          element.style.font_size=item.font_size;
+                          break;*/
+
+                      }
+                      if(item.margin_top){element.style.marginTop=item.margin_top;}
+                      if(item.margin_bottom){element.style.marginBottom=item.margin_bottom;}
+                      if(item.margin_left){element.style.marginLeft=item.margin_left;}
+                      if(item.margin_right){element.style.marginRight=item.margin_right;}
+                      if(item.padding_top){element.style.paddingTop=item.padding_top;}
+                      if(item.padding_bottom){element.style.paddingBottom=item.padding_bottom;}
+                      if(item.padding_left){element.style.paddingLeft=item.padding_left;}
+                      if(item.padding_right){element.style.paddingRight=item.padding_right;}
+                      element.style.top=item.y;
+                      element.style.left=item.x;
+                      switch(item.column){
+                        case 1:
+                            document.getElementById('form1').style.display='block';
+                            element.style.position = "absolute";
+                            document.getElementById('form1').appendChild(element);
+                            break;
+                        case 2:
+                            document.getElementById('form2').style.display='block';
+                            element.style.position = "sticky";
+                            document.getElementById('form2page1').appendChild(element);
+                            break;
+                        case 3:
+                            document.getElementById('form2').style.display='block';
+                            element.style.position = "sticky";
+                            document.getElementById('form2page2').appendChild(element);
+                            break;
+                        case 4:
+                            document.getElementById('form3').style.display='block';
+                            element.style.position = "sticky";
+                            document.getElementById('form3page1').appendChild(element);
+                            break;
+                        case 5:
+                            document.getElementById('form3').style.display='block';
+                            element.style.position = "sticky";
+                            document.getElementById('form3page2').appendChild(element);
+                            break;
+                        case 6:
+                            document.getElementById('form3').style.display='block';
+                            element.style.position = "sticky";
+                            document.getElementById('form3page3').appendChild(element);
+                            break;
+                      }
+                  }
+                }
+            },
+            fail :function(err){alert("failed to read data..."+err);},
+            error : function(error){alert("error");}
+         });
+      }
+      /*ENABLING THE PROPERTIES BAR WHEN CLICK ON FIELDS WHICH ARE IN FORM AREA*/
+      function enableEditTab(e) {
+          id=e.target.id;
+          var parent_id=e.target.parentNode.id;
+          json=findDataByLayout(parent_id);
+          console.log(json);
+          for(var i=0;i<json.length;i++){
+            console.log(json[i].node_id);
+            console.log(id);
+            if(json[i].node_id===id){
+              dataIndex=i;break;
+            }
+          }
+          if(id!='' || id.indexOf('_'<=-1)){
+              var x = document.getElementById("properties"); 
+              document.getElementById('Name_Element').innerHTML=e.target.id;
+              document.getElementById('id_div').style.display='block';
+              document.getElementById('styles_div').style.display='none';
+              document.getElementById('text_div').style.display='none';
+              document.getElementById('input_width').value=json[dataIndex].width.replace('px','');
+              document.getElementById('input_height').value=json[dataIndex].height.replace('px','');
+              document.getElementById('input_margin_top').value=json[dataIndex].margin_top.replace('px','');
+              document.getElementById('input_margin_left').value=json[dataIndex].margin_left.replace('px','');
+              document.getElementById('input_margin_right').value=json[dataIndex].margin_right.replace('px','');
+              document.getElementById('input_margin_bottom').value=json[dataIndex].margin_bottom.replace('px','');
+              document.getElementById('input_padding_top').value=json[dataIndex].padding_top.replace('px','');
+              document.getElementById('input_padding_right').value=json[dataIndex].padding_right.replace('px','');
+              document.getElementById('input_padding_bottom').value=json[dataIndex].padding_bottom.replace('px','');
+              document.getElementById('input_padding_left').value=json[dataIndex].padding_left.replace('px','');  
+              document.getElementById('style_select').value=0;
+              /*document.getElementById('align_select').value=0;*/
+              if(id[0]=='b'){
+                  document.getElementById('edit_header').style.display='block';
+                  document.getElementById('input_placeholder').style.display='none';
+                  document.getElementById('only_radio').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('edit_header').value=json[dataIndex].text;
+                  document.getElementById('input_value').style.display='none';
+                  document.getElementById('table_edit').style.display='none';
+                  document.getElementById('textDecorate').style.display='block';
+                  document.getElementById('input_label').style.display='none';
+                  document.getElementById('button_div').style.display='block';
+              }
+              else if(id[0]=='h'){
+                document.getElementById('edit_header').style.display='block';
+                document.getElementById('button_div').style.display='none';
+                document.getElementById('input_placeholder').style.display='none';
+                document.getElementById('only_radio').style.display='none';
+                document.getElementById('only_check').style.display='none';
+                document.getElementById('edit_header').value=json[dataIndex].text;
+                document.getElementById('input_value').style.display='none';
+                document.getElementById('table_edit').style.display='none';
+                document.getElementById('textDecorate').style.display='block';
+                document.getElementById('input_label').style.display='none';
+              }
+              else if(id[0]=='c') {
+                document.getElementById('edit_header').style.display='none';
+                document.getElementById('button_div').style.display='none';
+                document.getElementById('input_placeholder').style.display='none';
+                document.getElementById('only_radio').style.display='none';
+                document.getElementById('only_check').style.display='block';
+                document.getElementById('input_value').style.display='none';
+                document.getElementById('table_edit').style.display='none';
+                document.getElementById('textDecorate').style.display='block';
+                document.getElementById('input_label').style.display='block';
+                document.getElementById('label').value=json[dataIndex].label;
+                var only_chec=document.getElementById('only_check');
+                only_chec.innerHTML="";
+                var one=document.getElementById('input_check_one').cloneNode(true); 
+                for(var j=0;j<json[dataIndex].options;j++){
+                      if(j!=0){
+                        var check_side=document.getElementById('check_sidenav').cloneNode(true);
+                        var ele=check_side.getElementsByTagName('input');
+                        ele[1].value=json[dataIndex].option_names[j];
+                        check_side.id='input_check'+(j+1);
+                        only_chec.appendChild(check_side);
+                      }
+                      else{
+                        var ele=one.getElementsByTagName('input');
+                        ele[1].value=json[dataIndex].option_names[j];
+                        one.id='input_check1';
+                        only_chec.appendChild(one);
+                      }
+                }
+              }
+              else if(id[0]=='r'){
+                  document.getElementById('edit_header').style.display='none';
+                  document.getElementById('button_div').style.display='none';
+                  document.getElementById('input_placeholder').style.display='none';
+                  document.getElementById('only_radio').style.display='block';
+                  document.getElementById('input_value').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('table_edit').style.display='none';
+                  document.getElementById('textDecorate').style.display='block';
+                  document.getElementById('input_label').style.display='block';
+                  document.getElementById('label').value=json[dataIndex].label;
+                  var only_radio=document.getElementById('only_radio');
+                  only_radio.innerHTML="";
+                  var one=document.getElementById('input_radio_one').cloneNode(true); 
+                                for(var j=0;j<json[dataIndex].options;j++){
+                        if(j!=0){
+                          var radio_side=document.getElementById('radio_sidenav').cloneNode(true);
+                          var ele=radio_side.getElementsByTagName('input');
+                          ele[1].value=json[dataIndex].option_names[j];
+                          radio_side.id='input_radio'+(j+1);
+                          only_radio.appendChild(radio_side);
+                        }
+                        else{
+                          var ele=one.getElementsByTagName('input');
+                          ele[1].value=json[dataIndex].option_names[j];
+                          one.id='input_radio1';
+                          only_radio.appendChild(one);
+                        }
+                  }
+              }
+              else if(id[0]=='f'){
+                document.getElementById('edit_header').style.display='none';
+                document.getElementById('button_div').style.display='none';
+                document.getElementById('input_placeholder').style.display='none';
+                  document.getElementById('only_radio').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('input_value').style.display='none';
+                  document.getElementById('table_edit').style.display='none';
+                  document.getElementById('textDecorate').style.display='none';
+                  document.getElementById('input_label').style.display='block';
+                  document.getElementById('label').value=json[dataIndex].label;
+              }
+              else if(id[0]=='d'){
+                document.getElementById('edit_header').style.display='none';
+                document.getElementById('button_div').style.display='none';
+                document.getElementById('input_placeholder').style.display='none';
+                  document.getElementById('only_radio').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('input_value').style.display='none';
+                  document.getElementById('table_edit').style.display='none';
+                  document.getElementById('textDecorate').style.display='none';
+                  document.getElementById('input_label').style.display='block';
+                  document.getElementById('label').value=json[dataIndex].label;
+              }
+              else if(id.includes('text')){
+                  document.getElementById('edit_header').style.display='none';
+                  document.getElementById('button_div').style.display='none';
+                  document.getElementById('input_placeholder').style.display='block';
+                  document.getElementById('only_radio').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('placeholder_value').value=json[dataIndex].placeholder; 
+                  document.getElementById('input_value').style.display='block';
+                  document.getElementById('Value').value=json[dataIndex].defaultValue;
+                  document.getElementById('table_edit').style.display='none';
+                  document.getElementById('textDecorate').style.display='block';
+                  document.getElementById('input_label').style.display='block';
+                  document.getElementById('label').value=json[dataIndex].label;
+              }
+              else if(id.includes('num')){
+                  document.getElementById('edit_header').style.display='none';
+                  document.getElementById('button_div').style.display='none';
+                  document.getElementById('input_placeholder').style.display='block';
+                  document.getElementById('only_radio').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('placeholder_value').value=json[dataIndex].placeholder; 
+                  document.getElementById('input_value').style.display='block';
+                  document.getElementById('Value').value=json[dataIndex].defaultValue;
+                  document.getElementById('table_edit').style.display='none';
+                  document.getElementById('textDecorate').style.display='block';
+                  document.getElementById('input_label').style.display='block';
+                  document.getElementById('label').value=json[dataIndex].label;
+              }
+              else if(id.includes('table')){
+                  document.getElementById('edit_header').style.display='none';
+                  document.getElementById('button_div').style.display='none';
+                  document.getElementById('input_placeholder').style.display='none';
+                  document.getElementById('only_radio').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('input_value').style.display='none';
+                  document.getElementById('table_edit').style.display='block';
+                  document.getElementById('textDecorate').style.display='block';
+                  document.getElementById('input_label').style.display='block';
+                  document.getElementById('label').value=json[dataIndex].label;
+              }
+              else if(id.includes('password')){
+                  document.getElementById('edit_header').style.display='none';
+                  document.getElementById('button_div').style.display='none';
+                  document.getElementById('input_placeholder').style.display='block';
+                  document.getElementById('only_radio').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('placeholder_value').value=json[dataIndex].placeholder; 
+                  document.getElementById('input_value').style.display='none';
+                  document.getElementById('table_edit').style.display='none';
+                  document.getElementById('textDecorate').style.display='block';
+                  document.getElementById('input_label').style.display='block';
+                  document.getElementById('label').value=json[dataIndex].label;
+              }
+              else if(id.includes('mail')){
+                  document.getElementById('edit_header').style.display='none';
+                  document.getElementById('button_div').style.display='none';
+                  document.getElementById('input_placeholder').style.display='none';
+                  document.getElementById('only_radio').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('input_value').style.display='none';
+                  document.getElementById('table_edit').style.display='none';
+                  document.getElementById('textDecorate').style.display='block';
+                  document.getElementById('input_label').style.display='block';
+                  document.getElementById('label').value=json[dataIndex].label;
+              }
+              else if(id.includes('phone')){
+                  document.getElementById('edit_header').style.display='none';
+                  document.getElementById('button_div').style.display='none';
+                  document.getElementById('input_placeholder').style.display='block';
+                  document.getElementById('placeholder_value').value=json[dataIndex].placeholder; 
+                  document.getElementById('only_radio').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('input_value').style.display='none';
+                  document.getElementById('table_edit').style.display='none';
+                  document.getElementById('textDecorate').style.display='block';
+                  document.getElementById('input_label').style.display='block';
+                  document.getElementById('label').value=json[dataIndex].label;
+              }
+              else{
+                  document.getElementById('edit_header').style.display='none';
+                  document.getElementById('button_div').style.display='none';
+                  document.getElementById('input_placeholder').style.display='none';
+                  document.getElementById('only_radio').style.display='none';
+                  document.getElementById('only_check').style.display='none';
+                  document.getElementById('input_value').style.display='none';
+                  document.getElementById('table_edit').style.display='none';
+              }
+              x.style.display = "block";
+          }  }          
+      /*FOR UPDATING PURPOSE STORE THE DATA IN JSON VARIABLE. DATA OF JSON VARIABLE IS CORRESPONDING LAYOUT*/
+      function findDataByLayout(parent_id){
+          switch (parent_id){
+            case 'dropZone1':json=json_data1;db_no=1;break;
+            case "col2page1":json=json_data2;db_no=2;break;
+            case "col2page2":json=json_data3;db_no=3;break;
+            case "col3page1":json=json_data4;db_no=4;break;
+            case "col3page2":json=json_data5;db_no=5;break;
+            case "col3page3":json=json_data6;db_no=6;break;
+          }
+          return json;      }
+      /*STORE THE DATA ABOUT FIELDS IN CORRESPONDING DATABASES OF LAYOUTS*/
+      function storeUpdateData(json){
+        switch(db_no){
+          case 1:json_data1=json;break;
+          case 2:json_data2=json;break;
+          case 3:json_data3=json;break;
+          case 4:json_data4=json;break;
+          case 5:json_data5=json;break;
+          case 6:json_data6=json;break;
+        }    }
+      /*EDIT THE STYLE WIDTH OF FIELD WHICH IS IN FORM AREA*/
+      function editWidth(n){
+        document.getElementById(id).style.width=n +'px';
+        json[dataIndex].width=n+'px';
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE STYLE HEIGHT OF FIELD WHICH IS IN FORM AREA*/
+      function editHeight(n){
+        document.getElementById(id).style.height=n +'px';
+        json[dataIndex].height=n+'px';
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE STYLE MARGIN TOP OF FIELD WHICH IS IN FORM AREA*/
+      function editMarginTop(n){
+        document.getElementById(id).style.marginTop=n +'px';
+        json[dataIndex].margin_top=n+'px';   
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE STYLE MARGIN RIGHT OF FIELD WHICH IS IN FORM AREA*/
+      function editMarginRight(n){
+        document.getElementById(id).style.marginRight=n +'px';
+        json[dataIndex].margin_right=n+'px';
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE STYLE MARGIN BOTTOM OF FIELD WHICH IS IN FORM AREA*/
+      function editMarginBottom(n){
+        document.getElementById(id).style.marginBottom=n +'px';
+        json[dataIndex].margin_bottom=n+'px';
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE STYLE MARGIN LEFT OF FIELD WHICH IS IN FORM AREA*/
+      function editMarginLeft(n){
+        document.getElementById(id).style.marginLeft=n +'px'; 
+        json[dataIndex].margin_left=n+'px';
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE STYLE PADDING TOP OF FIELD WHICH IS IN FORM AREA*/
+      function editPaddingTop(n){
+        document.getElementById(id).style.paddingTop=n +'px';
+        json[dataIndex].padding_top=n+'px';
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE STYLE PADDING RIGHT OF FIELD WHICH IS IN FORM AREA*/
+      function editPaddingRight(n){
+        document.getElementById(id).style.paddingRight=n +'px';
+        json[dataIndex].padding_right=n+'px';
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE STYLE PADDING BOTTOM OF FIELD WHICH IS IN FORM AREA*/
+      function editPaddingBottom(n){
+        document.getElementById(id).style.paddingBottom=n +'px';
+        json[dataIndex].padding_bottom=n+'px';
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE STYLE PADDING LEFT OF FIELD WHICH IS IN FORM AREA*/
+      function editPaddingLeft(n){
+        document.getElementById(id).style.paddingLeft=n +'px';
+        json[dataIndex].padding_left=n+'px';
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE STYLE FONT SIZE OF TEXT IN THE FIELD WHICH IS IN FORM AREA*/
+      function editFontSize(n){
+        console.log(n);
+        switch(id[0]){
+          case 'h':document.getElementById(id).style.fontSize=n+'px';break;
+          case 'b':document.getElementById(id).style.fontSize=n+'px';break;
+          case 'p':
+          case 't':document.getElementById(id).children[0].children[0].style.fontSize=n+'px';break;
+          default:document.getElementById(id).style.fontSize=n+'px';break;
+        }
+        json[dataIndex].font_size=n+'px';
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE TEXT IN THE FIELD WHICH IS IN FORM AREA*/
+       function selectButton(n){
+        console.log(n);
+        switch(n){
+          case 's':
+                document.getElementById(id).type='submit';
+                document.getElementById(id).innerHTML='Submit';
+                console.log(document.getElementById(id).type);break;
+          case 'r':
+                document.getElementById(id).type='reset';
+                document.getElementById(id).innerHTML='Reset';
+                console.log(document.getElementById(id).type);break;
+          case 'p':
+                document.getElementById(id).type='print';
+                document.getElementById(id).innerHTML='Print';
+                console.log(document.getElementById(id).type);break;
+        }
+        json[dataIndex].text=document.getElementById(id).innerHTML;
+        json[dataIndex].button_type=document.getElementById(id).type;
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      function editText(n){
+        document.getElementById(id).innerHTML=n;
+        document.getElementById(id).style.textAlign='center';
+        json[dataIndex].text=n;
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }
+      /*EDIT THE PLACEHOLDER OF FIELD LIKE TEXT FIELD,PASSWORD FIELDS LIKE */
+      function editPlaceholder(n){
+        document.getElementById(id).children[1].children[0].placeholder=n;
+        json[dataIndex].placeholder=n;
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/    }  
+      /*EDIT THE DEFAULT VALUE FOR SOME TEXT FIELD */
+      function editValue(n){
+        document.getElementById(id).children[1].children[0].value=n;
+        json[dataIndex].defaultValue=n;
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*ADDING ONE EXTRA RADIO OPTION BUTTON */
+      function addRadioButton(n){
+        var opt1=document.getElementById('radio_option').cloneNode(true);
+        var opt2=document.getElementById('radio_sidenav').cloneNode(true);
+          opt2.id="input_radio"+input_radio;
+          opt1.onclick="";
+          opt1.children[1].childNodes[0].textContent="Option";
+        document.getElementById(id).appendChild(opt1);
+        document.getElementById('only_radio').appendChild(opt2);
+          input_radio+=1;
+          json[dataIndex].option_names[json[dataIndex].options]='Option';
+          json[dataIndex].options+=1;
+          storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*DELETE ONE RADIO OPTION BUTTON*/
+      function deleteRadioButton(event){
+         var listItems = document.getElementById("only_radio").getElementsByTagName("li");
+         if(listItems.length <= 1 ) return;  
+         var item=document.getElementById(id).getElementsByTagName("li");
+         var last = listItems[listItems.length-1];var j;
+         var parent = event.target.parentElement;
+         for(var i=0;i<listItems.length;i++){
+            if(parent.id==listItems[i].id){  
+              document.getElementById('only_radio').removeChild(listItems[i]);
+              document.getElementById(id).removeChild(item[i]);
+              j=i;
+              break;
+            }
+          }
+          json[dataIndex].option_names.splice(j,1);
+          json[dataIndex].options-=1;
+          storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*EDIT THE TEXT OT RADIO OPTION */
+      function editRadioText(event){
+        var listItems=document.getElementById('only_radio').getElementsByTagName("li");
+        var item=document.getElementById(id).getElementsByTagName("li");var j;
+        for(var i=0;i<listItems.length;i++){
+          if(event.parentNode.id==listItems[i].id){
+            item[i].children[1].childNodes[0].textContent=event.value;
+            j=i;break;
+          }
+        }
+        json[dataIndex].option_names[j]=event.value;
+        storeUpdateData(json);/* UPDATE THE DATA ABOUT FIELDS */
+      }
+
+      /*ADDING ONE EXTRA CHECK BOX*/
+      function addCheckBox(n){
+        var opt1=document.getElementById('check_option').cloneNode(true);
+        var opt2=document.getElementById('check_sidenav').cloneNode(true);
+        opt2.id="input_check"+input_check;
+        opt1.onclick="";
+        opt1.children[1].childNodes[0].textContent="Option";
+        document.getElementById(id).appendChild(opt1);
+        document.getElementById('only_check').appendChild(opt2);
+        input_check+=1;
+        json[dataIndex].option_names[json[dataIndex].options]='Option';
+        json[dataIndex].options+=1;
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*DELETE ONE CHECK BOX*/
+      function deleteCheckBox(event){
+         var listItems = document.getElementById("only_check").getElementsByTagName("li");
+         if(listItems.length <= 1 ) return;
+         var item=document.getElementById(id).getElementsByTagName("li");  
+         var last = listItems[listItems.length - 1];var j;
+         var parent=event.target.parentElement;
+         for(var i=0;i<listItems.length;i++){
+            if(parent.id==listItems[i].id){
+              document.getElementById('only_check').removeChild(listItems[i]);
+              document.getElementById(id).removeChild(item[i]);j=i;
+              break;
+            }
+          }
+         json[dataIndex].option_names.splice(j,1);
+         json[dataIndex].options-=1;
+         storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*EDIT THE TEXT OF CHECK BOX OPTION*/
+      function editCheckboxText(event){
+        var listItems=document.getElementById('only_check').getElementsByTagName("li");
+        var item=document.getElementById(id).getElementsByTagName("li");var j;
+        for(var i=0;i<listItems.length;i++){
+          if(event.parentNode.id==listItems[i].id){
+            item[i].children[1].childNodes[0].textContent=event.value;
+            j=i;break;
+          }
+        }
+        json[dataIndex].option_names[j]=event.value;
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*DELETE THE FIELD WHICH IS IN FORM AREA FROM FORM AREA*/
+      function delete_fun(e){
+          var remove_id=document.getElementById(id);
+          var remove_data=json.filter(function(item){
+            return item.node_id==id;
+          });
+          stack.push({"operation":'delete','id':id,'data':remove_data});
+          json= json.filter(function(item) { 
+              return item.node_id !== id ;  
+          });
+          remove_id.remove();
+          document.getElementById("properties").style.display='none';
+
+          storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*ADDING ONE COLUMN TO TABLE FIELD*/
+      function addTableCol(event){
+        console.log(document.getElementById(id).children[1].children[0]);
+        var table_element=document.getElementById(id).children[1].children[0];
+        var tr=table_element.getElementsByTagName("tr");
+        for(i=0;i<tr.length;i++){
+          var td=document.createElement('td');
+          var input=document.createElement('input');
+          input.type='text';
+          input.id='r'+(i+1)+'c'+(json[dataIndex].no_of_table_columns+1);
+          input.style.width='60px';
+          input.style.border='none';
+          input.style.background='none';
+          input.addEventListener('change', function(e) {
+                appendTableData(this);
+          }, false);
+          td.appendChild(input);
+          tr[i].appendChild(td);
+        }
+        json[dataIndex].no_of_table_columns+=1;
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*ADDING ONE ROW TO TABLE FIELD*/
+      function addTableRow(event){
+        table_element=document.getElementById(id);
+        var table_element=document.getElementById(id).children[1].children[0];
+        var tr=table_element.getElementsByTagName("tr");
+        var row=table_element.insertRow(-1);
+        json[dataIndex].no_of_table_rows+=1;
+        var td=tr[0].getElementsByTagName('td');
+        for(i=0;i<td.length;i++){
+          var cell=row.insertCell(i);
+          var input=document.createElement('input');
+          input.type='text';
+          input.id='r'+(json[dataIndex].no_of_table_rows)+'c'+(i+1);
+          input.style.width='60px';
+          input.style.border='none';
+          input.style.background='none';
+          input.addEventListener('change', function(e) {
+                console.log('I just changed');appendTableData(this);
+          }, false);
+          cell.appendChild(input);
+        }
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*DELETE ONE COLUMN FROM TABLE FIELD*/
+      function removeTableCol(event){
+        var table_element=document.getElementById(id).children[1].children[0];
+        var tr=table_element.getElementsByTagName("tr");
+        if(tr[0].getElementsByTagName('td').length==1){
+          /*json[dataIndex].no_of_table_rows=0;*/
+          return ;
+        }
+        for(i=0;i<tr.length;i++){
+          tr[i].deleteCell(-1);
+        }
+        json[dataIndex].no_of_table_columns-=1;
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*DELETE ONE ROW FROM TABLE FIELD*/
+      function removeTableRow(event){
+        var table_element=document.getElementById(id).children[1].children[0];
+        var tr=table_element.getElementsByTagName("tr");
+        if(tr.length==1){
+          return;
+        }
+        table_element.deleteRow(-1);
+        json[dataIndex].no_of_table_rows-=1;
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*APPEND AND EDIT THE TEXT TO / IN TABLE CELLS */
+      /*AND STORE THE TEXT IN THE TABEL CELLS INTO DATABASE*/
+      function appendTableData(event){
+        var event_id=event.id;
+        var event_value=event.value;
+        var id=event.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+        for(var i=0;i<json.length;i++){
+            if(json[i].node_id==id){
+              dataIndex=i;break;
+            }
+        }
+        var table_element_data={"event_id":event_id,"value":event_value};
+        json[dataIndex].table_Data.push(table_element_data);
+        storeUpdateData(json);/*UPDATE THE DATA ABOUT FIELDS*/
+      }
+
+      /*APPEND AND EDIT THE FORM NAME*/
+      function editFormName(n){
+        form_name=n;    }
+      function editFetchName(n){
+        flow_name=n;
+      }
+
+      /*function editAlign(n){
+        switch(n){
+          case "left":document.getElementById(id).style.align="left";break;
+          case "center":document.getElementById(id).style.align = "center";break;
+          case "right":document.getElementById(id).style.align="right";break;
+        }
+        json[dataIndex].align=n;
+        storeUpdateData(json);
+      }*/
+
+       /*WHEN CLICK ON PREVIEW BUTTON*/
+      function boldText(e){
+        var obj = document.getElementById(id);
+        if(obj.style.fontWeight!="bold"){
+          obj.style.fontWeight="bold";
+        }
+        else{
+          obj.style.fontWeight="normal"
+        }
+        json[dataIndex].font_weight=obj.style.fontWeight;
+        storeUpdateData(json);
+      }
+
+      function italicText(e){
+        var obj = document.getElementById(id);
+        if(obj.style.fontStyle == "italic" ) {
+            obj.style.fontStyle = "normal";
+        } else {
+            obj.style.fontStyle = "italic";
+        }
+        json[dataIndex].font_style=obj.style.fontStyle;
+        storeUpdateData(json);
+      }
+
+      function underlineText(e){
+            var obj = document.getElementById(id);
+            if( obj.style.textDecoration == "underline" ) {
+                obj.style.textDecoration = "none";
+            } else {
+                obj.style.textDecoration = "underline";
+            }
+            json[dataIndex].text_decoration=obj.style.textDecoration;
+            storeUpdateData(json);
+      }
+
+      function editLabel(n){
+        var obj=document.getElementById(id);
+        console.log(obj);
+        obj.children[0].innerHTML=n;
+        json[dataIndex].label=n;
+        storeUpdateData(json);
+      }
+  </script>
+</head>
+<body>
+  <!--TOP OF THE WEB PAGE BUTTONS THOSE ARE UNDO , SAVE , PREVIEW  AND REDO--> 
+  <div class="topnav" style="margin-left: 33%;">
+     <button class="button-three" title="Relevant Title" onclick="Undo(event)"><i class="fa fa-undo" aria-hidden="true">Undo</i></button>
+     <button class="button-one" title="Relevant Title" onclick="save(event)"><i class="fa fa-floppy-o" aria-hidden="true"> Save</i></button>
+     <!--button class="button-two" title="Relevant Title"  onclick="Preview('')"><i class="fa fa-eye" aria-hidden="true">Preview</i></button-->
+  </div>
+  <div class="sidenav">
+      Form Name : <input style="width:120px;margin-left: 80px;border:none;background:none;" id="form_name" onchange="editFormName(this.value)" value="UNTITLE FORM">
+      <!--LAYOUT-->
+      <ul class="w3-ul w3-card-4" style="width:100%">
+        <button class="dropdown-btn" id="defaultOpen">
+          <li>  <i class="fa fa-bars" aria-hidden="true">  Layouts</i></li>
+        </button>
+        <div class="dropdown-container" style="">
+            <!-- <li>Formname:<input style="width:120px;margin-left: 80px;" id="form_name" onchange="editFormName(this.value)" value=" "></li> -->
+             <li>Fetch:<input style="width:120px;margin-left: 80px;" id="flow_name" onchange="editFetchName(this.value)" value=" "></li>
+            <li><button  id="button" onclick="opendefault(event)" style="width: 150px;">Default</button></li>
+            <li><button id="button" onclick="open2col(event)" style="width: 150px;">2 Column</button></li>
+            <li><button id="button" onclick="open3col(event)" style="width: 150px;">3 Column</button></li>
+        </div>
+      </ul>
+      <!--FIELDS-->
+      <ul class="w3-ul w3-card-4" style="width:100%">
+        <button class="dropdown-btn"  id="defaultOpen"> 
+          <li><i class="fa fa-sliders" aria-hidden="true"> Fields</i></li>
+        </button>
+        <div class="dropdown-container">
+            <li><p class="draggable" draggable="true" id="_header" ondragstart="dragStart(event)"><i class="fa fa-header">&nbsp;&nbsp;Heading</i></p></li>
+            <li><p class="draggable" draggable="true" id="_text" ondragstart="dragStart(event)"><i class="fa fa-text-width">&nbsp;&nbsp;Text Field</i></p></li>
+            <li><p class="draggable" draggable="true" id="_num" ondragstart="dragStart(event)"><i class="fa fa-integer">&nbsp;&nbsp;Number Field</i></p></li>
+            <li><p class="draggable" draggable="true" id="_button" ondragstart="dragStart(event)">Button</p></li>
+            <li><p class="draggable" draggable="true" id="_check" ondragstart="dragStart(event)" ><i class="fa fa-check-circle">&nbsp;&nbsp;Check Box</i></p></li>
+            <li><p class="draggable" draggable="true" id="_radio" ondragstart="dragStart(event)" ><i class="fa fa-circle-o">&nbsp;&nbsp;Radio Button</i></p></li>  
+            <li><p class="draggable" draggable="true" id="_password" ondragstart="dragStart(event)"><i class="fa fa-key icon">&nbsp;&nbsp;Password</i></p></li> 
+            <li><p class="draggable" draggable="true" id="_file" ondragstart="dragStart(event)"><i class="fa fa-upload">&nbsp;&nbsp;File Upload</i></p></li>
+            <li><p class="draggable" draggable="true" id="_date" ondragstart="dragStart(event)"><i class="fa fa-calendar">&nbsp;&nbsp;Date</i></p></li>
+            <li><p class="draggable" draggable="true" id="_mail" ondragstart="dragStart(event)"><i class="fa fa-envelope">&nbsp;&nbsp;E-mail</i></p></li>
+            
+            <li><p class="draggable" draggable="true" id="_address" ondragstart="dragStart(event)"><i class="fa fa-address-book-o">&nbsp;&nbsp;Address</i></p></li>
+            <li><p class="draggable" draggable="true" id="_phone" ondragstart="dragStart(event)"><i class="fa fa-phone">&nbsp;&nbsp;Phone</i></p></li>
+            <li><p class="draggable" draggable="true" id="_dropdown" ondragstart="dragStart(event)"><i class="fa fa-angle-down">&nbsp;&nbsp;Drop Down</i></p></li>
+            <li><p class="draggable" draggable="true" id="_table" ondragstart="dragStart(event)"><i class="fa fa-table">&nbsp;&nbsp;Table</i></p></li>
+           <!--   <li><p class="draggable" draggable="true" id="_image" ondragstart="dragStart(event)"><i class="fa fa-picture-o">&nbsp;&nbsp;Image</i></p></li>
+           <li><p class="draggable" draggable="true" id="_table" ondragstart="dragStart(event)"><i class="fa fa-table">&nbsp;&nbsp;Input</i></p></li>
+            <li><p class="draggable" draggable="true" id="_rating" ondragstart="dragStart(event)"><i class="fa fa-star">&nbsp;&nbsp;Star Rating</i></p></li>  -->
+        </div>
+      </ul>
+  </div>
+  <div class="sidenav-right"  id="properties" style="float: right;display:none;">
+      <!--PROOPERTIES BAR-->
+      <div class="w3-bar w3-blue-grey">
+          <ul class="w3-ul w3-card-4" style="width:100%"> 
+              <button  class="w3-bar-item w3-button" id="Name_Element"  onClick="id_func(event)"></button>
+          </ul>
+          <ul class="w3-ul w3-card-4" style="width:100%"> 
+              <button class="w3-bar-item w3-button" onClick="style_func(event)">Style</button>
+          </ul>
+          <ul class="w3-ul w3-card-4" style="width:100%"> 
+              <button class="w3-bar-item w3-button" onClick="text_func(event)">Text</button>
+          </ul>
+      </div>
+      <!--ID TAB-->
+      <div id="id_div" class="w3-padding w3-xlarge w3-text-orange" style="padding:3px;display: block;">
+         <button class="btn" onclick="delete_fun(event)"><i class="fa fa-trash"></i></button>
+      </div>
+      <!--STYLES TAB-->
+      <div  id="styles_div" style="padding:3px;display: none;">
+        <table>
+          <tr>
+            <td><h6>Width:</h6></td>
+            <td><input id="input_width" style="width:70px" onchange="editWidth(this.value)" value="" type="number"/></td>
+          </tr>
+          <tr>
+              <td><h6>Height:&nbsp &nbsp</h6></td>
+              <td><input id="input_height" style="width:70px" onchange="editHeight(this.value)" value="" type='number' /></td>
+          </tr>
+          <tr>
+            <td><h6>Margin-Top:&nbsp &nbsp</h6></td>
+            <td><input style="width:70px" onchange="editMarginTop(this.value)" id="input_margin_top" value="" type="number"/></td>
+          </tr>
+          <tr>
+            <td><h6>Margin-Right:&nbsp &nbsp</h6></td>
+            <td><input style="width:70px" onchange="editMarginRight(this.value)"  id="input_margin_right" value="" type="number"/></td>
+          </tr>
+          <tr>
+            <td><h6>Margin-Bottom:&nbsp &nbsp</h6></td>
+            <td><input style="width:70px" onchange="editMarginBottom(this.value)" id="input_margin_bottom" value="" type="number"/></td>
+          </tr>
+          <tr>
+            <td><h6>Margin-Left:&nbsp &nbsp</h6></td>
+            <td><input style="width:70px" onchange="editMarginLeft(this.value)" id="input_margin_left" value="" type="number"/></td>
+          </tr>
+          <tr>
+            <td><h6>Padding-Top:&nbsp &nbsp</h6></td>
+            <td><input style="width:70px" onchange="editPaddingTop(this.value)" value="" id="input_padding_top" type="number"/></td>
+          </tr>
+          <tr>
+            <td><h6>Padding-Right:&nbsp &nbsp</h6></td>
+            <td><input style="width:70px" onchange="editPaddingRight(this.value)" value="" id="input_padding_right" type="number"/></td>
+          </tr>
+          <tr>
+            <td><h6>Padding-Bottom:&nbsp &nbsp</h6></td>
+            <td><input style="width:70px" onchange="editPaddingBottom(this.value)" value="" id="input_padding_bottom" type="number"/></td>
+          </tr>
+          <tr>
+            <td><h6>Padding-Left:&nbsp &nbsp</h6></td>
+            <td><input style="width:70px"onchange="editPaddingLeft(this.value)" value="" id="input_padding_left" type="number"/></td>
+          </tr>
+        </table>
+      </div>
+      <!--TEXT TAB-->
+      <div   id="text_div" style="display: none;padding:3px;">
+        <div style="border:1px solid black;" id='only_radio'>
+              <li id="input_radio1">
+                  <input type='radio' >&nbsp<input type='text' style="width:50px;border:none;background:none;" value="option" onchange="editRadioText(this)"/> <i class="fa fa-plus" onclick="addRadioButton(event)" style="cursor:pointer;"></i>&nbsp
+              </li>
+        </div>
+        <div style="border:1px solid black;" id='only_check'>
+                <li id="input_check1 ">
+                  <input type='checkbox' >&nbsp<input type='text' style="width:50px;border:none;background:none;" value="option" onchange="editCheckboxText(this)"/><i class="fa fa-plus" onclick="addCheckBox(event)"style="cursor:pointer;"></i>&nbsp
+                </li>
+        </div>
+        <div id='table_edit'>
+            <table>
+              <tr>
+                <td>No.of Columns:</td>
+                <td><i class="fa fa-plus" onclick="addTableCol(event)" style="cursor:pointer;"></i></td>
+                <td><i class="fa fa-minus" onclick="removeTableCol(event)" style="cursor:pointer;"></td>
+              </tr>
+              <tr>
+                <td>No.of Rows:</td>
+                <td><i class="fa fa-plus" onclick="addTableRow(event)" style="cursor:pointer;"></i></td>
+                <td><i class="fa fa-minus" onclick="removeTableRow(event)" style="cursor:pointer;"></td>
+              </tr>
+             <!--  <tr>
+                <td>Column Size:</td>
+                <td><input style="width:70px"  onchange="changeTable(this.value)" value=2 type="number"/></td>
+              </tr>
+              <tr>
+                <td>Header Size:</td>
+                <td><input style="width:70px"  onchange="changeTableCol(this.value)" value=2 type="number"/></td>
+              </tr> -->
+            </table>
+        </div>
+        <div  id="button_div" style="padding:3px;display:none;">
+          <table>
+          <tr>
+            <td><h6>Actions:</h6></td>
+            <td>
+              <select onchange="selectButton(this.value)" id='button_select'> 
+                    <option value="" disabled selected>--------</option>
+                    <option value="s">Submit</option>
+                    <option value="r">Reset</option>
+                    <option value="p">Print</option>
+              </select>
+            </td>
+          </tr>
+          </table>
+        </div>
+        <table>
+          <tr>
+            <td><input type="text" value="Heading" id="edit_header" onchange="editText(this.value)" style="display: none;width:150px;"/>
+            </td>
+          </tr>
+          <tr >
+            <td  id="input_placeholder" style="display: none;">PlaceHolder:
+            <input style="width:120px" onchange="editPlaceholder(this.value)" type='text' value=" " id="placeholder_value"/></td>
+          </tr>
+          <tr>
+            <td id="input_value" style="display: none;">Value:
+            <input style="width:120px" onchange="editValue(this.value)" type='text'  id="Value"/>
+            </td>
+          </tr>
+          <tr>
+            <td id='input_label' style="display: none;">Label:
+              <input type="text" name="label" style="width: 120px;" onchange="editLabel(this.value)" id='label'/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <div id='textDecorate' style="display: none;">
+                  <i class="fa fa-bold" style="border-radius: 3px; opacity: 1; border: 1px solid rgb(160, 160, 160); padding: 3px 1px 4px 4px; margin: 1px; width: 24px; height: 20px;" onclick="boldText(event)"></i>
+                  <i class="fa fa-italic" style="border-radius: 3px; opacity: 1; border: 1px solid rgb(160, 160, 160); padding: 3px 1px 4px 4px; margin: 1px; width: 24px; height: 20px;"  onclick="italicText(event)"></i>
+                  <i class="fa fa-underline" style="border-radius: 3px; opacity: 1; border: 1px solid rgb(160, 160, 160); padding: 3px 1px 4px 4px; margin: 1px; width: 24px; height: 20px;" onclick="underlineText(event)"></i>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td><h6>Font:</h6></td>
+            <td>
+              <select onchange="editFontSize(this.value)" id='style_select'> 
+                    <option value="" disabled selected>Style</option>
+                    <option value="15">Normal</option>
+                    <option value="36"><h1>Heading1</h1></option>
+                    <option value="30"><h2>Heading2</h2></option>
+                    <option value="24"><h3>Heading3</h3></option>
+                    <option value="20"><h4>Heading4</h4></option>
+                    <option value="18"><h5>Heading5</h5></option>
+                    <option value="16"><h6>Heading6</h6></option>
+              </select>
+            </td>
+          </tr>
+          <!-- <tr>
+            <td><h6>Align:</h6></td>
+            <td><select onchange="editAlign(this.value)" id='align_select'>
+                <option value="" disabled selected> align</option>
+                <option value="left">Left</option>
+                <option value="center">Center</option>
+                <option value="right">Right</option>
+              </select>
+            </td>
+          </tr> -->
+        </table>
+      </div>
+  </div>
+  <!--FORM AREAS-->
+  <div class="main">
+        <div id="dropZone1" ondrop="drop(event)" ondragover="allowDrop(event)" style="padding: 2px;position:sticky;"></div>
+       <div id="dropZone2">
+          <div class="column2" id="col2page1" style="background-color:AliceBlue;position:sticky;" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
+          <div class="column2" id="col2page2" style="background-color:Azure;position:sticky;" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
+        </div>
+        <div id="dropZone3">
+          <div class="column3" id="col3page1" style="background-color:#DCDCDC;position:sticky;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div class="column3" id="col3page2" style="background-color:#FFFFFF;position:sticky;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div class="column3" id="col3page3" style="background-color:#F5F5F5;position:sticky;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+        <div id="form1" style="display: none;padding:2px;" ></div>
+        <div id="form2" style="display:none;padding:2px;">
+          <div class="form2col2page" id="form2page1"></div>
+          <div class="form2col2page" id="form2page2"></div>
+        </div>
+        <div id="form3" style="display:none; padding:2px;">
+          <div class="form3col3page" id="form3page1"></div>
+          <div class="form3col3page" id="form3page2"></div>
+          <div class="form3col3page" id="form3page3"></div>
+        </div>  
+  </div>
+  <!--FIELDS WHICH ARE ADD TO FORM AREAS-->
+  <div id="op_fields" style="display: none;">
+        <div class="resize-container">
+          <div class="resize-drag1"  id="header" onclick="enableEditTab(event)" style="width: 160px;margin: 2px;height:56px;font-size:36px;padding: 2px;">
+            Heading
+          </div>
+        </div>
+        <div class="resize-container" >
+            <div class="resize-drag2" id='text' onclick="enableEditTab(event)" style="width: 172px;margin: 2px;height:56px;">
+              <legend id="title" style="font-size: 12px;">Label</legend>
+              <div>
+              <input type="text" placeholder="enter text" style="width:150px;height: 15px;padding:1px;align-self:center;font-size:16px;">
+            </div></div>
+        <div class="resize-container" >
+            <div class="resize-drag2" id='num' onclick="enableEditTab(event)" style="width: 172px;margin: 2px;height:56px;">
+              <legend id="title" style="font-size: 12px;">Label</legend>
+              <div>
+              <input type="number" placeholder="enter Number" style="width:150px;height: 15px;padding:1px;align-self:center;font-size:16px;">
+            </div></div>
+        </div>
+        <button id='b' class="resize-drag5"  style="font-size: 16px;width:90px;height:35px;padding:1px;margin: 2px;" type="button" onclick="enableEditTab(event)" name="Button">Button
+        </button>
+        <div class="resize-container">
+          <div id='check' class="resize-drag4" style="font-size: 16px;width: 192px;margin: 2px;height:50px;" onclick="enableEditTab(event)">
+                <legend id="title" style="font-size: 12px;">Label</legend>
+                <li style="list-style: none">
+                  <input  type="checkbox" onclick="" style="width:10px;height: 15px;padding:1px;float:left;" value="Check" name='check'/>&nbsp<label>Option</label>
+                </li>
+          </div>
+        </div>
+        <div class="resize-container">
+          <div id='radio' class="resize-drag4" onclick="enableEditTab(event)" style="font-size:16px;margin: 2px;width: 192px;height:50px;">
+
+            <legend id="title" style="font-size: 12px;">Label</legend>
+            <li style="list-style: none">
+                      <input  type="radio"  onclick=""  style="width:10px;height: 15px;padding:1px;float: left;" value="Radio" name="radio"/>&nbsp<label>Option</label>
+            </li>
+          </div>
+        </div>
+        <div class="resize-container">
+          <div id='password' class="resize-drag2" onclick="enableEditTab(event)" style="margin: 2px;width: 172px;height: 56px;">
+            <legend id="title" style="font-size: 12px;">Label</legend>
+            <div><input  type="password" onclick="" placeholder="enter password" style="width:150px;height: 15px;padding:1px;align-self:center;font-size: 16px;" />
+          </div></div>
+        </div>
+        <div class="resize-container">
+          <div id='file' class="resize-drag2" onclick="enableEditTab(event)" style="width:260px;margin: 2px;height: 56px;">
+            <legend id="title" style="font-size: 12px;">Label</legend>
+            <div><input  type="file"  onclick=""  style="width:100px;height:35px;font-size: 16px;"/>
+          </div></div>
+        </div>
+        <div class="resize-container">
+          <div id='date' class="resize-drag2" onclick="enableEditTab(event)" style="width:172px;margin: 2px;height: 56px;">
+            <legend id="title" style="font-size: 12px;">Label</legend>
+            <div><input   type="date" onclick="" style="width:150px;font-size:16px;height:35px;"/>
+          </div></div>
+        </div>
+        <div class="resize-container">
+            <div id='mail' class="resize-drag2" onclick="enableEditTab(event)" style="width: 172px;margin: 2px;height: 56px;">
+              <legend id="title" style="font-size: 12px;">Label</legend>
+              <div><input type="email" onclick="" placeholder='enter email' style="width: 150px;font-size: 16px;height: 35px;"></div>            
+            </div>
+          <div>
+        <div class="resize-container">
+            <div id='phone' class="resize-drag2" onclick="enableEditTab(event)" style="width: 172px;margin: 2px;height: 56px;">
+              <legend id="title" style="font-size: 12px;">Label</legend>
+              <div><input type="tel" onclick=""  pattern="[0-9]{10}" placeholder="enter phone no." style="width: 150px;font-size: 16px;height: 35px;"></div>
+            </div>
+         </div>
+        <div class="resize-container">
+                <select id='dropDown' class="resize-drag1" onclick="enableEditTab(event)"  style="width:130px;margin: 2px;height: 50px;">
+                   <option value="1">option</option>
+                </select>
+        </div>
+        <div class="resize-container">
+          <textarea id='address' class='resize-drag1' onclick="enableEditTab(event)" style="width: 172px;margin: 2px;height: 56px;"></textarea> 
+        </div>
+        <div class="resize-container">
+          <div class='resize-drag3' id='table' onclick='enableEditTab(event)' style="width:180px;margin: 2px;height: 100px;">
+            <legend id="title" style="font-size: 12px;">Label</legend>
+            <div>
+              <table style="border:1px solid black;width:100%;height: 100%;" id='table_actual'>
+                <tr >
+                  <td><input id='r1c1' type='text' style="width:75%;border:none;background:none;" onchange="appendTableData(this)" /></td>
+                  <td><input id='r1c2' type='text' style="width:75%;border:none;background:none;" onchange="appendTableData(this)"/></td>
+                </tr>
+                <tr>
+                  <td><input id='r2c1' type='text' style="width:75%;border:none;background:none;" onchange="appendTableData(this)"/></td>
+                  <td><input id='r2c2' type='text' style="width:75%;border:none;background:none;" onchange="appendTableData(this)"/></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+       </div>
+  </div>
+  <!--FIELDS WHICH ARE USED IN PREVIEW-->
+  <div class="form_op_fields_class" style="display: none;">
+      <div class="form_op_fields_class_elements"  id="form_header" style="width: 120px;margin: 2px;height:56px;text-align: center;">
+            Heading
+      </div>
+
+      <div id='form_text' class="form_op_fields_class_elements" style="width: 172px;margin: 2px;height:56px;">
+            <legend id="title" style="font-size: 12px;">Label</legend>
+            <div><input type="text" placeholder="enter text" style="width:150px;height: 15px;padding:1px;align-self:center;font-size:16px;"></div>
+      </div>
+      <div id='form_num' class="form_op_fields_class_elements" style="width: 172px;margin: 2px;height:56px;">
+            <legend id="title" style="font-size: 12px;">Label</legend>
+            <div><input type="integer" placeholder="enter Number" style="width:150px;height: 15px;padding:1px;align-self:center;font-size:16px;"></div>
+      </div>
+
+      <button id='form_b' class="form_op_fields_class_elements" style="font-size: 16px;width:90px;height:35px;padding:1px;margin: 2px;" type="button" name="Button">Button
+      </button>
+
+      <div id='form_check' class="form_op_fields_class_elements"  style="font-size: 16px;width: 192px;margin: 2px;height:80px;float:left;" >
+        <legend id="title" style="font-size: 12px;">Label</legend>
+      </div>
+
+      <div id='form_radio' class="form_op_fields_class_elements" style="font-size:16px;margin: 2px;width: 192px;height:80px;float:left;">
+        <legend id="title" style="font-size: 12px;">Label</legend>
+      </div>
+
+      <div id='form_password' class="form_op_fields_class_elements" style="font-size:16px;margin: 2px;width: 172px;height: 56px;">
+        <legend id="title" style="font-size: 12px;">Label</legend>
+           <div><input  type="password" placeholder="enter password" style="width:150px;height: 15px;padding:1px;align-self:center;font-size: 16px;" /></div>
+      </div>
+
+      <div id='form_file' class="form_op_fields_class_elements" style="width:260px;margin: 2px;height: 56px;font-size:16px;">
+        <legend id="title" style="font-size: 12px;">Label</legend>
+        <div><input  type="file" style="width:100px;height:35px;font-size: 16px;padding:1px;align-self:center;"/></div>
+      </div>
+
+      <div id='form_date' class="form_op_fields_class_elements" style="width:172px;margin: 2px;height: 56px;">
+        <legend id="title" style="font-size: 12px;">Label</legend>
+            <div><input   type="date" style="width:150px;font-size:16px;height:35px;"/></div>
+      </div>
+      <div id='form_phone' class="form_op_fields_class_elements" style="width:172px;margin: 2px;height: 56px;">
+        <legend id="title" style="font-size: 12px;">Label</legend>
+            <div><input   type="tel" pattern="[0-9]{10}" placeholder="enter phone no." style="width:150px;font-size:16px;height:35px;"/></div>
+      </div>
+      <div id='form_mail' class="form_op_fields_class_elements" style="width:172px;margin: 2px;height: 56px;">
+        <legend id="title" style="font-size: 12px;">Label</legend>
+            <div><input   type="email" style="width:150px;font-size:16px;height:35px;"/></div>
+      </div>
+      <div  class="form_op_fields_class_elements">
+          <textarea id='form_address' class='form_op_fields_class_elements' style="width: 172px;margin: 2px;height: 56px;"></textarea> 
+      </div>
+      </div>
+      <div id='form_table' class="form_op_fields_class_elements" style="width:180px;margin: 2px;height: 56px;">
+        <legend id="title" style="font-size: 12px;">Label</legend>
+        <div>
+          <table  style="border:1px solid black;width:100%;height: 100%;">
+            
+          </table>
+        </div>        
+      </div>
+    </div>
+  <!--THESE ARE USED IN RADIO AND CHECK FIELDS-->
+  <div style="display: none;">
+      <li id='radio_option' onclick="" style="list-style: none">
+          <input type='radio' onclick="" style="width:10px;height: 15px;padding:1px;"/>&nbsp<label>Option</label>
+      </li>
+      <li id='radio_sidenav'>
+          <input type='radio'/>&nbsp<input type='text' style="width:50px;border:none;background:none;" value="option" onchange="editRadioText(this)"/>
+          <i class="fa fa-plus" onclick="addRadioButton(event)" style="cursor:pointer;"></i>&nbsp<i class="fa fa-minus" onclick="deleteRadioButton(event)" style="cursor:pointer;"></i>
+      </li>
+      <li id="input_radio_one">
+            <input type='radio' >&nbsp<input type='text' style="width:50px;border:none;background:none;" value="option" onchange="editRadioText(this)"/><i class="fa fa-plus" onclick="addRadioButton(event)"style="cursor:pointer;"></i>&nbsp
+      </li>
+
+      <li id='check_option' onclick="" style="list-style: none">
+            <input type='checkbox' onclick="" style="width:10px;height: 15px;padding:1px;"/>&nbsp<label>Option</label>
+      </li>
+      <li id='check_sidenav'>
+              <input type='checkbox'/>&nbsp<input type='text' style="width:50px;border:none;background:none;" value="option" onchange="editCheckboxText(this)"/>
+              <i class="fa fa-plus" onclick="addCheckBox(event)" style="cursor:pointer;"></i>&nbsp<i class="fa fa-minus" onclick="deleteCheckBox(event)" style="cursor:pointer;"></i>
+      </li>
+      <li id="input_check_one">
+                <input type='checkbox' >&nbsp<input type='text' style="width:50px;border:none;background:none;" value="option" onchange="editCheckboxText(this)"/><i class="fa fa-plus" onclick="addCheckBox(event)"style="cursor:pointer;"></i>&nbsp
+      </li>
+  </div>
+  <script>
+
+     function formDetail()
+      {
+            var id = '{{id}}'
+            var formurl = 'http://127.0.0.1:5001/api/v1/form/'+id
+            $.ajax({
+                type:"GET",
+                url : formurl,
+                contentType: 'application/json',
+                dataType:'json',
+                success:function(e){
+                    edit(id)
+                }
+              });
+      }
+
+      function edit(id)
+      {
+          alert('in Edit')
+          document.getElementById('dropZone1').style.display='none';
+          document.getElementById('dropZone2').style.display='none';
+          document.getElementById('dropZone3').style.display='none';
+          $.ajax({
+            type:"GET",
+            url:'http://127.0.0.1:5001/api/v1/form/'+id,
+            contentType: 'application/json;charset=utf-8',
+            dataType:'json',
+            cache : false,
+            success:function(e){
+                console.log(e)
+                document.getElementById('form1').innerHTML="";
+                document.getElementById('form2page1').innerHTML="";
+                document.getElementById('form2page2').innerHTML="";
+                document.getElementById('form3page1').innerHTML="";
+                document.getElementById('form3page2').innerHTML="";
+                document.getElementById('form3page3').innerHTML="";
+                var l=e.length;var item;
+                var element;
+                var obj = e
+                var game_l=obj.nodes.length;
+                var divPrevTop1=0;
+                var divPrevTop2=0;
+                var divPrevTop3=0;
+                data=obj.nodes;
+                for(var i=0;i<game_l;i++){
+                  item=data[i].data;
+
+                  if(item.status=="Active"){
+                      switch(item.type){
+                        case 'Button':
+                          element=document.getElementById('form_b').cloneNode(true);
+                          element.id=item.node_id;
+                          element.type=item.button_type
+                          element.style.width=item.width;
+                          element.style.height=item.height;
+                          element.innerHTML=item.text;
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          console.log(element);
+                          break;
+                        case 'Text':
+                          element=document.getElementById('form_text').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.children[1].children[0].value=item.defaultValue;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.height;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].value=item.defaultvalue;
+                          element.children[1].children[0].placeholder=item.placeholder;
+                          break;
+                        case 'Number':
+                          element=document.getElementById('form_num').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.children[1].children[0].value=item.defaultValue;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.height;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].value=item.defaultvalue;
+                          element.children[1].children[0].placeholder=item.placeholder;
+                          break;
+                        case 'Check Box':
+                            element=document.getElementById('form_check').cloneNode(true);
+                            element.id=item.node_id;
+                            element.children[0].innerHTML=item.label;
+                            /*element.innerHTML="";*/
+                            element.style.width=item.width;
+                            element.style.height=item.height;
+                            for(var j=0;j<item.options;j++){
+                                  var ele=document.getElementById('check_option').cloneNode(true);
+                                  ele.children[1].childNodes[0].textContent=item.option_names[j];
+                                  ele.childNodes[1].name=i;
+                                  element.appendChild(ele);
+                            }
+                            element.style.fontSize=item.font_size;
+                            if(item.font_style){element.style.fontStyle=item.font_style;}
+                            if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                            break;
+                        case 'Header':
+                          element=document.getElementById('form_header').cloneNode(true);
+                          element.id=item.node_id;
+                          element.style.width=item.width;
+                          element.style.height=item.height;
+                          element.innerHTML=item.text;
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          break;
+                        case 'Radio':
+                            element=document.getElementById('form_radio').cloneNode(true);
+                            element.id=item.node_id;
+                            element.children[0].innerHTML=item.label;
+                            element.style.width=item.width;
+                            element.style.height=item.height;
+                            for(var j=0;j<item.options;j++){
+                              var ele=document.getElementById('radio_option').cloneNode(true);
+                              ele.children[1].childNodes[0].textContent=item.option_names[j];
+                              ele.childNodes[1].name=i;
+                              element.appendChild(ele);
+                            }
+                            element.style.fontSize=item.font_size;
+                            if(item.font_style){element.style.fontStyle=item.font_style;}
+                            if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                            break;
+                        case 'Password':
+                          element = document.getElementById('form_password').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.height;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].placeholder=item.placeholder;
+                          break;
+                        case 'File':
+                          element=document.getElementById('form_file').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.height;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].placeholder=item.placeholder;break;
+                        case 'Date':
+                          element=document.getElementById('form_date').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.height;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].placeholder=item.placeholder;break;
+                        case 'Phone':
+                          element=document.getElementById('form_phone').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.height;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].placeholder=item.placeholder;break;
+                        case 'Email':
+                          element=document.getElementById('form_mail').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          var wdt=item.width.replace('px','')-22;
+                          element.children[1].children[0].style.width=wdt+'px';
+                          element.style.height=item.height;
+                          var ht=item.height.replace('px','')-23;
+                          element.children[1].children[0].style.height=ht+'px';
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          element.children[1].children[0].placeholder=item.placeholder;break;
+                        case 'Table':
+                          element=document.getElementById('form_table').cloneNode(true);
+                          element.id=item.node_id;
+                          element.children[0].innerHTML=item.label;
+                          element.style.width=item.width;
+                          element.style.height=item.height;
+                          for(i=0;i<item.no_of_table_rows;i++){
+                            var row=element.children[1].children[0].insertRow(-1);
+                            for(j=0;j<item.no_of_table_columns;j++){
+                              var exist=0;var cell=row.insertCell(j);
+                              for(k=0;k<item.table_Data.length;k++){
+                                if(item.table_Data[k].event_id==('r'+(i+1)+'c'+(j+1))){
+                                  exist=1;
+                                  break;
+                                }
+                              }
+                              if(exist==1){
+                                cell.innerHTML=item.table_Data[k].value;
+                                cell.id=item.table_Data[k].event_id;
+                              }
+                              else{
+                                var input=document.createElement('input');
+                                input.type='text';
+                                input.id='r'+(i+1)+'c'+(j+1);
+                                input.style.width='60px';
+                                input.style.border='none';
+                                input.style.background='none';
+                                cell.appendChild(input);
+                              }
+
+                            }
+                          }
+                          var tds=element.children[1].children[0].getElementsByTagName('td');
+                          for(k=0;k<tds.length;k++){
+                            tds[k].style.border="1px solid black";
+                          }
+                          element.style.fontSize=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          break;
+                        case 'Address':
+                          element=document.getElementById('form_address').cloneNode(true);
+                          element.id=item.node_id;
+                          element.style.width=item.width;
+                          element.style.height=item.height;
+                          element.style.font_size=item.font_size;
+                          if(item.font_style){element.style.fontStyle=item.font_style;}
+                          if(item.font_weight){element.style.fontWeight=item.font_weight;}
+                          break;
+                        /*case 'DropDown':
+                          element=documen.getElementById('form_dropdown').cloneNode(true);
+                          element.id=item.node_id;
+                          element.style.width=item.width;
+                          element.style.height=item.height;
+                          element.style.font_size=item.font_size;
+                          break;*/
+
+                      }
+                      if(item.margin_top){element.style.marginTop=item.margin_top;}
+                      if(item.margin_bottom){element.style.marginBottom=item.margin_bottom;}
+                      if(item.margin_left){element.style.marginLeft=item.margin_left;}
+                      if(item.margin_right){element.style.marginRight=item.margin_right;}
+                      if(item.padding_top){element.style.paddingTop=item.padding_top;}
+                      if(item.padding_bottom){element.style.paddingBottom=item.padding_bottom;}
+                      if(item.padding_left){element.style.paddingLeft=item.padding_left;}
+                      if(item.padding_right){element.style.paddingRight=item.padding_right;}
+                      element.style.top=item.y;
+                      element.style.left=item.x;
+                      switch(item.column){
+                        case 1:
+                            document.getElementById('form1').style.display='block';
+                            element.style.position = "absolute";
+                            document.getElementById('form1').appendChild(element);
+                            break;
+                        case 2:
+                            document.getElementById('form2').style.display='block';
+                            element.style.position = "sticky";
+                            document.getElementById('form2page1').appendChild(element);
+                            break;
+                        case 3:
+                            document.getElementById('form2').style.display='block';
+                            element.style.position = "sticky";
+                            document.getElementById('form2page2').appendChild(element);
+                            break;
+                        case 4:
+                            document.getElementById('form3').style.display='block';
+                            element.style.position = "sticky";
+                            document.getElementById('form3page1').appendChild(element);
+                            break;
+                        case 5:
+                            document.getElementById('form3').style.display='block';
+                            element.style.position = "sticky";
+                            document.getElementById('form3page2').appendChild(element);
+                            break;
+                        case 6:
+                            document.getElementById('form3').style.display='block';
+                            element.style.position = "sticky";
+                            document.getElementById('form3page3').appendChild(element);
+                            break;
+                      }
+                  }
+                }
+            },
+            fail : function(err){
+                alert("failed to read data..."+err);
+            },
+            error : function(error){
+                alert("error");
+            }
+         });
+
+      }
+
+
+    /*ON CLICK ON LAYOUT OR FIELDS TAB*/
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+    for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            }
+            else {
+              dropdownContent.style.display = "block";
+            }
+          });
+    }
+    /*CLICK ON THE STYLE TAB*/
+    function style_func(e){
+      document.getElementById("text_div").style.display="none";
+      document.getElementById("styles_div").style.display="block";
+      document.getElementById("id_div").style.display="none";
+      }
+    /*CLICK ON THE TEXT TAB*/
+    function text_func(e){
+      document.getElementById("text_div").style.display="block";
+      document.getElementById("styles_div").style.display="none";
+      document.getElementById("id_div").style.display="none";
+     }
+    /*CLICK ON THE ID TAB*/
+    function id_func(e){
+      document.getElementById("text_div").style.display="none";
+      document.getElementById("styles_div").style.display="none";
+      document.getElementById("id_div").style.display="block";
+      }
+  </script>
+</body>
+</html> 
