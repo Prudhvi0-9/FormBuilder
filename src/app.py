@@ -32,6 +32,7 @@ def create_app(env_name):
     @app.route('/', methods=['GET'])
     def index():
         return render_template('formbase.html')
+        # return render_template('')
 
     @app.route('/addForm/<flowId>/<nodeId>', methods=['GET'])
     def addform(flowId,nodeId):
