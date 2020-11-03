@@ -3,8 +3,34 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1073c96c-0d0c-4305-8325-adab79649307" name="Default Changelist" comment="Form" />
+    <list default="true" id="1073c96c-0d0c-4305-8325-adab79649307" name="Default Changelist" comment="Initial">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9ba0772c0dca9b0a7eaf8455faadea6b62abb55c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9ba0772c0dca9b0a7eaf8455faadea6b62abb55c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b8b83fd7b57a7c8410aa869c18b3728a28aaad4c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b8b83fd7b57a7c8410aa869c18b3728a28aaad4c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +43,14 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1WQBkg2MARQIVe2KeE95DfsMiiP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -92,13 +126,32 @@
       <option name="project" value="LOCAL" />
       <updated>1580549528863</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Initial">
+      <created>1604399089649</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604399089649</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Form List changes" />
     <MESSAGE value="Form edit changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Form edit changes" />
+    <MESSAGE value="Initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
   </component>
   <component name="WindowStateProjectService">
     <state x="178" y="28" width="1084" height="834" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604397659409">
@@ -109,6 +162,10 @@
       <screen x="0" y="28" width="1440" height="834" />
     </state>
     <state x="272" y="28" width="886" height="834" key="CommitChangelistDialog2/0.28.1440.834@0.28.1440.834" timestamp="1604396464821" />
+    <state x="134" y="100" width="1152" height="704" key="DiffContextDialog" timestamp="1604399099179">
+      <screen x="0" y="28" width="1440" height="834" />
+    </state>
+    <state x="134" y="100" width="1152" height="704" key="DiffContextDialog/0.28.1440.834@0.28.1440.834" timestamp="1604399099179" />
     <state x="503" y="217" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604397607465">
       <screen x="0" y="28" width="1440" height="834" />
     </state>
@@ -153,6 +210,10 @@
       <screen x="0" y="28" width="1440" height="834" />
     </state>
     <state x="592" y="356" width="246" height="184" key="VCS.EditChangelistDialog/0.28.1440.834@0.28.1440.834" timestamp="1604398579995" />
+    <state x="315" y="166" width="800" height="565" key="Vcs.Push.Dialog.v2" timestamp="1604401839965">
+      <screen x="0" y="28" width="1440" height="834" />
+    </state>
+    <state x="315" y="166" width="800" height="565" key="Vcs.Push.Dialog.v2/0.28.1440.834@0.28.1440.834" timestamp="1604401839965" />
     <state x="0" y="28" width="1143" height="593" key="dock-window-1" timestamp="1604397918372">
       <screen x="0" y="28" width="1440" height="834" />
     </state>
