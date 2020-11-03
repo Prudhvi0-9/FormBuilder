@@ -27,10 +27,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1073c96c-0d0c-4305-8325-adab79649307" name="Default Changelist" comment="Initial">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9ba0772c0dca9b0a7eaf8455faadea6b62abb55c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9ba0772c0dca9b0a7eaf8455faadea6b62abb55c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b8b83fd7b57a7c8410aa869c18b3728a28aaad4c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b8b83fd7b57a7c8410aa869c18b3728a28aaad4c" afterDir="false" />
-    </list>
+    <list default="true" id="1073c96c-0d0c-4305-8325-adab79649307" name="Default Changelist" comment="Initial" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +60,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/templates/formbase.html" />
   </component>
   <component name="RecentsManager">
@@ -133,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604399089649</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initial">
+      <created>1604401880229</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604401880229</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,18 +206,18 @@
       <screen x="0" y="28" width="1440" height="834" />
     </state>
     <state width="1416" height="251" key="GridCell.Tab.1.right/0.28.1440.834@0.28.1440.834" timestamp="1604397918359" />
-    <state x="216" y="80" width="1007" height="737" key="SettingsEditor" timestamp="1604398570272">
+    <state x="216" y="80" width="1007" height="737" key="SettingsEditor" timestamp="1604401971815">
       <screen x="0" y="28" width="1440" height="834" />
     </state>
-    <state x="216" y="80" width="1007" height="737" key="SettingsEditor/0.28.1440.834@0.28.1440.834" timestamp="1604398570272" />
+    <state x="216" y="80" width="1007" height="737" key="SettingsEditor/0.28.1440.834@0.28.1440.834" timestamp="1604401971815" />
     <state x="592" y="356" width="246" height="184" key="VCS.EditChangelistDialog" timestamp="1604398579995">
       <screen x="0" y="28" width="1440" height="834" />
     </state>
     <state x="592" y="356" width="246" height="184" key="VCS.EditChangelistDialog/0.28.1440.834@0.28.1440.834" timestamp="1604398579995" />
-    <state x="315" y="166" width="800" height="565" key="Vcs.Push.Dialog.v2" timestamp="1604401839965">
+    <state x="315" y="166" width="800" height="565" key="Vcs.Push.Dialog.v2" timestamp="1604401887691">
       <screen x="0" y="28" width="1440" height="834" />
     </state>
-    <state x="315" y="166" width="800" height="565" key="Vcs.Push.Dialog.v2/0.28.1440.834@0.28.1440.834" timestamp="1604401839965" />
+    <state x="315" y="166" width="800" height="565" key="Vcs.Push.Dialog.v2/0.28.1440.834@0.28.1440.834" timestamp="1604401887691" />
     <state x="0" y="28" width="1143" height="593" key="dock-window-1" timestamp="1604397918372">
       <screen x="0" y="28" width="1440" height="834" />
     </state>
