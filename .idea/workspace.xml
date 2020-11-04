@@ -9,7 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1073c96c-0d0c-4305-8325-adab79649307" name="Default Changelist" comment="Initial">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9ba0772c0dca9b0a7eaf8455faadea6b62abb55c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/b/9ba0772c0dca9b0a7eaf8455faadea6b62abb55c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604402124972</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Initial">
+      <created>1604486752488</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604486752489</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -244,10 +250,10 @@
       <screen x="0" y="28" width="1440" height="834" />
     </state>
     <state x="592" y="356" width="246" height="184" key="VCS.EditChangelistDialog/0.28.1440.834@0.28.1440.834" timestamp="1604398579995" />
-    <state x="315" y="166" width="800" height="565" key="Vcs.Push.Dialog.v2" timestamp="1604484259302">
+    <state x="315" y="166" width="800" height="565" key="Vcs.Push.Dialog.v2" timestamp="1604487034420">
       <screen x="0" y="28" width="1440" height="834" />
     </state>
-    <state x="315" y="166" width="800" height="565" key="Vcs.Push.Dialog.v2/0.28.1440.834@0.28.1440.834" timestamp="1604484259302" />
+    <state x="315" y="166" width="800" height="565" key="Vcs.Push.Dialog.v2/0.28.1440.834@0.28.1440.834" timestamp="1604487034420" />
     <state x="0" y="28" width="1143" height="593" key="dock-window-1" timestamp="1604397918372">
       <screen x="0" y="28" width="1440" height="834" />
     </state>
